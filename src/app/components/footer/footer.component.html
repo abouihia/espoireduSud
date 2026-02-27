@@ -1,0 +1,40 @@
+<footer id="footer" class="py-5 app-site-footer">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-4 text-center text-lg-start">
+        <h3 class="fw-bold mb-3">Espoir du Sud<span>.</span></h3>
+        <p class="text-muted small">Engagement, Solidarité et Développement Durable pour la région de Resmouka.</p>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="newsletter-form glass p-3 rounded-4">
+          <label class="form-label small mb-2 d-block text-center text-lg-start">S'inscrire à notre newsletter</label>
+          <div class="input-group">
+            <input type="email" [(ngModel)]="email.mail" class="form-control border-0" placeholder="Votre email"
+              style="background: rgba(255,255,255,0.1); color: white;">
+            <button class="btn btn-premium-primary" type="button" (click)="saveEmail()">Souscrire</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 text-center text-lg-end">
+        <div class="social-links">
+          <a href="#" class="me-3 text-white" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+          <a href="https://www.facebook.com/espoir.dusud" class="me-3 text-white" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="me-3 text-white" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.youtube.com/results?search_query=espoir+du+sud" class="text-white" aria-label="YouTube"><i
+              class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4 opacity-10">
+
+    <div class="text-center text-muted small">
+      &copy; {{ currentYear }} <strong>Espoir du Sud</strong>. Tous droits réservés.
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center" [class.active]="isScrolled" aria-label="Retour en haut"><i
+    class="bi bi-arrow-up-short"></i></a>

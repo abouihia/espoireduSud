@@ -1,0 +1,40 @@
+
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Verification de votre adresse mail</h2>
+      @if (authService.userData; as user) {
+        <div class="formGroup">
+          <p class="text-center">Nous avons envoyé un e-mail de confirmation à  {{user.email}} </p>
+          <p class="text-center">Veuillez vérifier votre e-mail et cliquer sur le lien pour vérifier votre adresse e-mail</p>
+        </div>
+      }
+    </div>
+
+
+    <div class="container d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-6">
+        <form  method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="text-center">
+              <button type="button" class="btn btnPrimary" (click)="authService.SendVerificationMail()">
+                <i class="fas fa-redo-alt"></i>
+                <a class="pull-right"> Renvoi de Email de verification</a>
+              </button>
+            </div>
+          </div>
+          <div class="p-3"></div>
+          <div class="row">
+            <div class="text-center">
+              <a class="pull-right">Revenir à la page de connexion? <span class="redirect" routerLink="/Connexion"> Connexion</span></a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>

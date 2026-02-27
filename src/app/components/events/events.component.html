@@ -1,0 +1,202 @@
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+
+      <div class="col-lg-8 entries">
+
+        <article class="entry" id="1">
+
+          <div class="entry-img">
+            <img [src]="imageUrl" alt="" class="img-fluid">
+          </div>
+
+          <h2 class="entry-title">
+            <a href="blog-single.html">
+              Waada du premier Mai {{dateWadaa}}
+            </a>
+          </h2>
+          <div class="entry-content">
+            <p>
+              Nous invitons pour l'waada du premier Mai {{dateWadaa}}
+              Cet Réunion annuel est l'occassion se réunir pour faire un état des lieux
+              des projet durant l'année précédante et de discuter des projets à venir
+              ainsi que la collecte des données pour la madrassa .
+
+            </p>
+            <app-count-down></app-count-down>
+            <div class="read-more">
+              <a routerLink="/EventReadMore">plus d'informations</a>
+            </div>
+          </div>
+
+        </article><!-- End blog entry -->
+
+        <article class="entry" id="2">
+
+          <div class="entry-img" >
+            <img [src]="imageUrl1" alt="" class="img-fluid"  >
+          </div>
+
+          <h2 class="entry-title">
+            La soirée Annuelle d'irsmouken
+          </h2>
+
+
+
+          <!-- Show user data when logged in -->
+          @if (authService.userData; as user) {
+            <div class="row">
+              <div class="col-md-12">
+                <div class="media">
+                  <div class="media-body">
+                    Vous êtes authentifier :
+                    <h1>Hello: <strong>{{(user.lastName) ? user.lastName : 'User'}}</strong></h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+
+
+          <div class="entry-content">
+            <p>
+              La soirée annuelle aura lieu dans
+            </p>
+          </div>
+
+          <div class="entry-content">
+            <p>
+              Nous vous invitons à soyez nombreux pour cette événements annuel d'irsmouken
+            </p>
+            <div class="read-more">
+              <a routerLink="/EventReadMore">Plus d'information</a>
+            </div>
+          </div>
+        </article><!-- End blog entry -->
+
+        <article class="entry" id="#">
+
+          <div class="entry-img">
+            <img [src]="imageUrl2" alt="" class="img-fluid">
+          </div>
+
+          <h2 class="entry-title">
+            <a href="https://maglor.fr/region-du-maroc/ywm-wtny-llmhajryn-barsmwkn-ahtfa-baldwr-alhywy-llmhajryn-fy-altnmyt">Journée national des MRE Irsmouken (édition 2024): Journée nationale des migrants à Arsmoken :
+            Célébrer le rôle vital des migrants dans le développement</a>
+          </h2>
+
+
+          <div class="entry-content">
+            <h3>Communiqué de la président  de l'association Irsmouken</h3>
+            <p>
+              Comme vous le savez, la journée des MRE du 10 août 2024 a été l’occasion pour notre
+              commune d’Irsmouken de démontrer sa place particulière dans la province de Tiznit et auprès de toutes les autorités.
+              Les acteurs administratifs et étatiques de l’investissement nous ont fait l’honneur de leur présence,
+              le président de la province de Tiznit, le président de la commune de Tiznit,
+              les présidents des communes de El Maader, Agloo, Ouijjane … sont venus nous exposer les opportunités d’investissements
+              et les mesures incitatives dans la province de Tiznit et celles spécifiques pour Irsmouken
+              ( comme le bénéfice exclusif pour les exploitants agricoles de Irsmouken et El maader de l’eau de dessalement qui sera issue d’une des stations d’Aglloo).
+              A cette occasion, les représentants de l’association Espoir du Sud, Mustapha Namouss et moi-même avons parlé de la situation d’Amlal et de la route 115 qui relie Irsmouken à Tiznit.
+              Je joins la vidéo faite de nos interventions.
+            </p>
+            <div class="read-more">
+              <a href="https://agadirtoday.com/fr/la-journee-national-du-migrant-tiznit-reaffirme-les-liens-diaspora-et-developpement/">Plus d'informations</a>
+            </div>
+          </div>
+
+        </article><!-- End blog entry -->
+
+        <article class="entry" id="#3" >
+
+          <div class="entry-img">
+            <img [src]="imageUrl3" alt="" class="img-fluid">
+          </div>
+
+          <h2 class="entry-title">
+            <p>
+              Nous pouvons conclure que toutes les autorités ont une bonne connaissance des représentants d’Irsmouken et nous pouvons vous assurer de la bonne considération qu’ils ont de nous.
+              Même les absents ont été cités  et toutes les personnes qui ont permis l’existence de ces liens locaux.
+              C’est essentiel et précieux et nous continuerons ensemble à faire rayonner notre identité et nos valeurs d’Imazalen Irsmouken. Al Hamdulillah !
+            </p>
+          </h2>
+
+          <div class="entry-meta">
+            <ul>
+              <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
+              <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+              <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+            </ul>
+          </div>
+
+          <div class="entry-content">
+            <p>
+              Nous pouvons conclure que toutes les autorités ont une bonne connaissance des représentants d’Irsmouken et nous pouvons vous assurer de la bonne considération qu’ils ont de nous.
+              Même les absents ont été cités  et toutes les personnes qui ont permis l’existence de ces liens locaux.
+              C’est essentiel et précieux et nous continuerons ensemble à faire rayonner notre identité et nos valeurs d’Imazalen Irsmouken. Al Hamdulillah !
+            </p>
+            <div class="read-more">
+              <a href="blog-single.html">Read More</a>
+            </div>
+          </div>
+
+        </article><!-- End blog entry -->
+
+        <div class="blog-pagination">
+          <ul class="justify-content-center">
+            <li><a href="#1">1</a></li>
+            <li class="active"><a href="#2">2</a></li>
+            <li><a href="#3">3</a></li>
+          </ul>
+        </div>
+
+      </div><!-- End blog entries list -->
+
+      <div class="col-lg-4">
+
+        <div class="sidebar">
+          <h3 class="sidebar-title">Les postes recents</h3>
+          <div class="sidebar-item recent-posts">
+            <div class="post-item clearfix">
+              <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+              <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
+              <time datetime="2020-01-01">Jan 1, 2020</time>
+            </div>
+
+            <div class="post-item clearfix">
+              <img src="assets/img/blog/blog-recent-2.jpg" alt="">
+              <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
+              <time datetime="2020-01-01">Jan 1, 2020</time>
+            </div>
+
+            <div class="post-item clearfix">
+              <img src="assets/img/blog/blog-recent-3.jpg" alt="">
+              <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
+              <time datetime="2020-01-01">Jan 1, 2020</time>
+            </div>
+
+            <div class="post-item clearfix">
+              <img src="assets/img/blog/blog-recent-4.jpg" alt="">
+              <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
+              <time datetime="2020-01-01">Jan 1, 2020</time>
+            </div>
+
+            <div class="post-item clearfix">
+              <img src="assets/img/blog/blog-recent-5.jpg" alt="">
+              <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
+              <time datetime="2020-01-01">Jan 1, 2020</time>
+            </div>
+
+          </div><!-- End sidebar recent posts-->
+
+
+
+        </div><!-- End sidebar -->
+
+      </div><!-- End blog sidebar -->
+
+    </div>
+
+  </div>
+</section><!-- End Blog Section -->

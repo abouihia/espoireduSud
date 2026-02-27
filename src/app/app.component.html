@@ -1,0 +1,74 @@
+<div class="app-shell">
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo-container d-flex align-items-center">
+        <a routerLink="/Accueil" class="logo me-3">
+          <img src="assets/img/Logo.jpeg" alt="Logo" class="img-fluid" style="height: 60px; border-radius: 8px;">
+        </a>
+        <h1 class="logo-text h5 m-0 d-none d-md-block">
+          <a routerLink="/Accueil">Espoir du Sud<span></span></a>
+        </h1>
+      </div>
+
+      <nav id="navbar" class="navbar" [class.navbar-mobile]="isMobileMenuOpen">
+        <ul>
+          <li><a class="nav-link" routerLink="/Accueil" routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Accueil</a></li>
+          <li><a class="nav-link" routerLink="/Histoire" routerLinkActive="active-link"
+              (click)="closeMobileMenu()">Notre histoire</a></li>
+          <li><a class="nav-link" routerLink="/Event" routerLinkActive="active-link"
+              (click)="closeMobileMenu()">Actualité</a></li>
+          <li><a class="nav-link" routerLink="/Services" routerLinkActive="active-link"
+              (click)="closeMobileMenu()">Services</a></li>
+          <li class="dropdown"><a href="javascript:void(0)" (click)="toggleDropdown($event)"
+              aria-haspopup="true"><span>Démocratie & droits</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a routerLink="/AccesDroits" routerLinkActive="active-link" (click)="closeMobileMenu()">Accès aux
+                  droits</a></li>
+              <li><a routerLink="/Democraties" routerLinkActive="active-link" (click)="closeMobileMenu()">Démocratie
+                  Locale</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" routerLink="/Team" routerLinkActive="active-link"
+              (click)="closeMobileMenu()">Equipe</a></li>
+          <li><a class="nav-link" routerLink="/Contact" routerLinkActive="active-link"
+              (click)="closeMobileMenu()">Contact</a></li>
+          @if (authService.userData; as user) {
+          <li><a class="nav-link" routerLink="/Photos" routerLinkActive="active-link"
+              (click)="closeMobileMenu()">Photos</a></li>
+          <li><a class="nav-link d-lg-none" href="javascript:void(0)" (click)="authService.SignOut(); closeMobileMenu()"
+              style="color: #dc3545;">Déconnexion</a></li>
+          } @else {
+          <li><a class="nav-link d-lg-none" routerLink="/Connexion" routerLinkActive="active-link"
+              (click)="closeMobileMenu()">Connexion</a></li>
+          }
+        </ul>
+        <button type="button" class="mobile-nav-toggle"
+          [attr.aria-label]="isMobileMenuOpen ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation'"
+          [attr.aria-expanded]="isMobileMenuOpen" (click)="toggleMobileMenu()">
+          <i class="bi" [class.bi-list]="!isMobileMenuOpen" [class.bi-x]="isMobileMenuOpen" aria-hidden="true"></i>
+        </button>
+      </nav>
+
+      <div class="header-social-links d-none d-lg-flex align-items-center">
+        @if (!authService.userData) {
+        <a routerLink="/Connexion" class="get-started-btn">Connexion</a>
+        }
+        @if (authService.userData) {
+        <button type="button" class="btn btn-outline-success btn-sm ms-3" (click)="authService.SignOut()">
+          Déconnexion
+        </button>
+        }
+      </div>
+
+    </div>
+  </header>
+
+  <main class="app-main" id="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer class="app-footer"></app-footer>
+</div>

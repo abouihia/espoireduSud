@@ -1,0 +1,141 @@
+<section id="contact" class="contact py-5">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title mb-5">
+      <h2 class="text-uppercase fw-bold">Nous écrire</h2>
+      <p class="text-muted">Pour toute question ou demande, n'hésitez pas à nous contacter. Nous nous engageons à vous
+        répondre dans les plus brefs délais.</p>
+    </div>
+
+    <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+
+      <!-- Coordonnées et Carte -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4"><i class="fas fa-map-marked-alt me-2 text-success"></i>Notre localisation</h4>
+            <div class="rounded-3 overflow-hidden border mb-4">
+              <div id="map" style="height: 300px; width: 100%; z-index: 1;"></div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="d-flex align-items-center p-3 rounded-3 bg-light border">
+                  <div class="flex-shrink-0 bg-success text-white rounded-circle p-2 me-3"
+                    style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-0 fw-bold">Email</h6>
+                    <p class="small text-muted mb-0">contact@espoirdusud.org</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex align-items-center p-3 rounded-3 bg-light border">
+                  <div class="flex-shrink-0 bg-success text-white rounded-circle p-2 me-3"
+                    style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-0 fw-bold">Téléphone</h6>
+                    <p class="small text-muted mb-0">+33 1 23 45 67 89</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire de contact -->
+      <div class="col-lg-6">
+        @if (!sendedOk) {
+        <div class="form-card-premium h-100">
+          <div class="form-header-premium">
+            <h3><i class="fas fa-paper-plane me-2"></i>Envoyez un message</h3>
+            <p>Remplissez le formulaire ci-dessous</p>
+          </div>
+
+          <form [formGroup]="registerForm" (ngSubmit)="saveContact()" class="registration-form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-user" [ngClass]="{'text-danger': submitted && f.name.errors}"></i>
+                  <input type="text" class="form-control" placeholder="Votre nom" formControlName="name"
+                    [(ngModel)]="contact.name" [ngClass]="{ 'is-invalid-custom': submitted && f.name.errors }">
+                  @if (submitted && f.name.errors?.required) {
+                  <span class="invalid-feedback-custom">Le nom est requis</span>
+                  }
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-envelope" [ngClass]="{'text-danger': submitted && f.email.errors}"></i>
+                  <input type="email" class="form-control" placeholder="Votre email" formControlName="email"
+                    [(ngModel)]="contact.email" [ngClass]="{ 'is-invalid-custom': submitted && f.email.errors }">
+                  @if (submitted && f.email.errors) {
+                  <span class="invalid-feedback-custom">
+                    @if (f.email.errors.required) { Email requis }
+                    @if (f.email.errors.email) { Email invalide }
+                  </span>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group-custom">
+              <i class="fas fa-tag" [ngClass]="{'text-danger': submitted && f.subject.errors}"></i>
+              <input type="text" class="form-control" placeholder="Sujet" formControlName="subject"
+                [(ngModel)]="contact.sujet" [ngClass]="{ 'is-invalid-custom': submitted && f.subject.errors }">
+              @if (submitted && f.subject.errors?.required) {
+              <span class="invalid-feedback-custom">Le sujet est requis</span>
+              }
+            </div>
+
+            <div class="input-group-custom mb-2">
+              <i class="fas fa-comment-dots" [ngClass]="{'text-danger': submitted && f.message.errors}"
+                style="top: 25px; transform: none;"></i>
+              <textarea class="form-control" rows="5" placeholder="Votre message" formControlName="message"
+                [(ngModel)]="contact.message" (ngModelChange)="valueChange()"
+                [ngClass]="{ 'is-invalid-custom': submitted && f.message.errors }"></textarea>
+              @if (submitted && f.message.errors?.required) {
+              <span class="invalid-feedback-custom">Le message est requis</span>
+              }
+            </div>
+
+            <div class="d-flex justify-content-end mb-4">
+              <span class="badge" [ngClass]="(100 - remainingText) < 10 ? 'bg-danger' : 'bg-success'">
+                {{100 - remainingText}} caractères restants
+              </span>
+            </div>
+
+            <button type="submit" class="btn-premium-submit">
+              <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+            </button>
+          </form>
+        </div>
+        }
+
+        @if (sendedOk) {
+        <div class="card border-0 shadow-sm rounded-4 bg-success text-white h-100 overflow-hidden">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center p-5 text-center">
+            <div class="bg-white text-success rounded-circle p-3 mb-4 shadow-sm"
+              style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-check fa-3x"></i>
+            </div>
+            <h3 class="fw-bold mb-3">Message envoyé !</h3>
+            <p class="mb-4 text-white-50">Merci de nous avoir contactés. Nous reviendrons vers vous très prochainement.
+            </p>
+            <button class="btn btn-outline-light rounded-pill px-4" (click)="sendedOk = false; onReset()">Envoyer un
+              autre message</button>
+          </div>
+        </div>
+        }
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,156 @@
+<section id="membre-registration" class="membre-registration py-5">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-7">
+
+        <div class="form-card-premium">
+          <div class="form-header-premium">
+            <h3><i class="fas fa-id-badge me-2"></i>Devenir membre</h3>
+            <p>Rejoignez l'association <strong>Espoir du Sud</strong> et contribuez à nos actions sociales.</p>
+          </div>
+
+          @if (authService.isknowUser) {
+          <div class="alert alert-danger text-center mb-4" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            Cette adresse email est déjà utilisée par un autre compte.
+          </div>
+          }
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="registration-form">
+
+            <div class="row">
+              <!-- Prénom -->
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-user" [ngClass]="{'text-danger': submitted && f.firstName.errors}"></i>
+                  <input type="text" class="form-control" placeholder="Prénom" formControlName="firstName"
+                    [(ngModel)]="membre.firstName" [ngClass]="{ 'is-invalid-custom': submitted && f.firstName.errors }">
+                  @if (submitted && f.firstName.errors?.required) {
+                  <span class="invalid-feedback-custom">Le prénom est requis</span>
+                  }
+                </div>
+              </div>
+
+              <!-- Nom -->
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-id-card" [ngClass]="{'text-danger': submitted && f.lastName.errors}"></i>
+                  <input type="text" class="form-control" placeholder="Nom" formControlName="lastName"
+                    [(ngModel)]="membre.lastName" [ngClass]="{ 'is-invalid-custom': submitted && f.lastName.errors }">
+                  @if (submitted && f.lastName.errors?.required) {
+                  <span class="invalid-feedback-custom">Le nom est requis</span>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group-custom">
+              <i class="fas fa-envelope" [ngClass]="{'text-danger': submitted && f.email.errors}"></i>
+              <input type="email" class="form-control" placeholder="Email" formControlName="email"
+                [(ngModel)]="membre.email" [ngClass]="{ 'is-invalid-custom': submitted && f.email.errors }">
+              @if (submitted && f.email.errors) {
+              <span class="invalid-feedback-custom">
+                @if (f.email.errors.required) { Email requis }
+                @if (f.email.errors.email) { Format d'email invalide }
+              </span>
+              }
+            </div>
+
+            <!-- Adresse -->
+            <div class="input-group-custom">
+              <i class="fas fa-map-marker-alt" [ngClass]="{'text-danger': submitted && f.address.errors}"></i>
+              <input type="text" class="form-control" placeholder="Adresse" formControlName="address"
+                [(ngModel)]="membre.address" [ngClass]="{ 'is-invalid-custom': submitted && f.address.errors }">
+              @if (submitted && f.address.errors?.required) {
+              <span class="invalid-feedback-custom">L'adresse est requise</span>
+              }
+            </div>
+
+            <div class="row">
+              <!-- Village d'origine -->
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-home" [ngClass]="{'text-danger': submitted && f.villageOrigine.errors}"></i>
+                  <select class="form-select" formControlName="villageOrigine"
+                    [ngClass]="{ 'is-invalid-custom': submitted && f.villageOrigine.errors }">
+                    <option [ngValue]="null" disabled selected>Village d'origine</option>
+                    @for (v of village; track v) {
+                    <option [ngValue]="v">{{v}}</option>
+                    }
+                  </select>
+                  @if (submitted && f.villageOrigine.errors?.required) {
+                  <span class="invalid-feedback-custom">Sélectionnez un village</span>
+                  }
+                </div>
+              </div>
+
+              <!-- Téléphone -->
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-phone" [ngClass]="{'text-danger': submitted && f.phone.errors}"></i>
+                  <input type="text" class="form-control" placeholder="Téléphone" formControlName="phone"
+                    [(ngModel)]="membre.phone" [ngClass]="{ 'is-invalid-custom': submitted && f.phone.errors }">
+                  @if (submitted && f.phone.errors?.required) {
+                  <span class="invalid-feedback-custom">Téléphone requis</span>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Password -->
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-lock" [ngClass]="{'text-danger': submitted && f.password.errors}"></i>
+                  <input [type]="getIputType()" class="form-control" placeholder="Mot de passe"
+                    formControlName="password" [(ngModel)]="membre.password"
+                    [ngClass]="{ 'is-invalid-custom': submitted && f.password.errors }">
+                  <i class="fas password-toggle" [ngClass]="hide ? 'fa-eye' : 'fa-eye-slash'"
+                    (click)="toggleVisibility()"></i>
+                  @if (submitted && f.password.errors) {
+                  <span class="invalid-feedback-custom">
+                    @if (f.password.errors.required) { Requis }
+                    @if (f.password.errors.minlength) { Min 8 caractères }
+                  </span>
+                  }
+                </div>
+              </div>
+
+              <!-- Confirm Password -->
+              <div class="col-md-6">
+                <div class="input-group-custom">
+                  <i class="fas fa-user-check" [ngClass]="{'text-danger': submitted && f.confirmPassword.errors}"></i>
+                  <input [type]="getConfirmInputType()" class="form-control" placeholder="Confirmation"
+                    formControlName="confirmPassword" [(ngModel)]="membre.confirmPassword"
+                    [ngClass]="{ 'is-invalid-custom': submitted && f.confirmPassword.errors }">
+                  <i class="fas password-toggle" [ngClass]="hideConfirm ? 'fa-eye' : 'fa-eye-slash'"
+                    (click)="toggleConfirmVisibility()"></i>
+                  @if (submitted && f.confirmPassword.errors) {
+                  <span class="invalid-feedback-custom">
+                    @if (f.confirmPassword.errors.required) { Requis }
+                    @if (f.confirmPassword.errors.mustMatch) { Ne correspond pas }
+                  </span>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button type="submit" class="btn-premium-submit">
+                <i class="fas fa-user-plus me-2"></i>S'inscrire
+              </button>
+              <button type="button" (click)="redirectTo()" class="btn-premium-cancel">
+                Annuler
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
