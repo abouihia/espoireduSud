@@ -1,202 +1,157 @@
-<!-- ======= Blog Section ======= -->
-<section id="blog" class="blog">
+<section id="page-header" class="py-5 bg-dark text-white text-center"
+  style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('assets/img/hero-bg.jpg') center/cover;">
+  <div class="container py-4" data-aos="fade-down">
+    <h1 class="display-4 fw-bold mb-3">Actualités & Événements</h1>
+    <p class="lead opacity-75 mx-auto" style="max-width: 700px;">Restez informé des derniers projets, rencontres et
+      waadas au sein de la communauté Irsmouken.</p>
+  </div>
+</section>
+
+<section id="blog" class="blog py-5 bg-light">
   <div class="container" data-aos="fade-up">
-
-    <div class="row">
-
-      <div class="col-lg-8 entries">
-
-        <article class="entry" id="1">
-
-          <div class="entry-img">
-            <img [src]="imageUrl" alt="" class="img-fluid">
-          </div>
-
-          <h2 class="entry-title">
-            <a href="blog-single.html">
-              Waada du premier Mai {{dateWadaa}}
-            </a>
-          </h2>
-          <div class="entry-content">
-            <p>
-              Nous invitons pour l'waada du premier Mai {{dateWadaa}}
-              Cet Réunion annuel est l'occassion se réunir pour faire un état des lieux
-              des projet durant l'année précédante et de discuter des projets à venir
-              ainsi que la collecte des données pour la madrassa .
-
-            </p>
-            <app-count-down></app-count-down>
-            <div class="read-more">
-              <a routerLink="/EventReadMore">plus d'informations</a>
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <!-- Event 1 -->
+        <article class="card-premium border-0 mb-5 p-0 overflow-hidden" id="1">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl + ') center/cover'"></div>
             </div>
-          </div>
-
-        </article><!-- End blog entry -->
-
-        <article class="entry" id="2">
-
-          <div class="entry-img" >
-            <img [src]="imageUrl1" alt="" class="img-fluid"  >
-          </div>
-
-          <h2 class="entry-title">
-            La soirée Annuelle d'irsmouken
-          </h2>
-
-
-
-          <!-- Show user data when logged in -->
-          @if (authService.userData; as user) {
-            <div class="row">
-              <div class="col-md-12">
-                <div class="media">
-                  <div class="media-body">
-                    Vous êtes authentifier :
-                    <h1>Hello: <strong>{{(user.lastName) ? user.lastName : 'User'}}</strong></h1>
-                  </div>
+            <div class="col-md-7">
+              <div class="p-4 p-lg-5">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                  <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-2"
+                    style="background: rgba(34, 197, 94, 0.1);">Événement Annuel</span>
+                  <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i> {{dateWadaa}}</span>
+                </div>
+                <h3 class="fw-bold mb-3">Waada du premier Mai {{dateWadaa}}</h3>
+                <p class="text-muted mb-4">Cette réunion annuelle est l'occasion de se réunir pour faire un état des
+                  lieux des projets durant l'année précédente et de discuter des projets à venir.</p>
+                <div class="d-flex align-items-center justify-content-between mt-auto">
+                  <app-count-down></app-count-down>
+                  <a routerLink="/EventReadMore" class="btn btn-outline-primary rounded-pill px-4">En savoir plus</a>
                 </div>
               </div>
             </div>
-          }
-
-
-          <div class="entry-content">
-            <p>
-              La soirée annuelle aura lieu dans
-            </p>
           </div>
+        </article>
 
-          <div class="entry-content">
-            <p>
-              Nous vous invitons à soyez nombreux pour cette événements annuel d'irsmouken
-            </p>
-            <div class="read-more">
-              <a routerLink="/EventReadMore">Plus d'information</a>
+        <!-- Event 2 -->
+        <article class="card-premium border-0 mb-5 p-0 overflow-hidden" id="2">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl1 + ') center/cover'"></div>
+            </div>
+            <div class="col-md-7">
+              <div class="p-4 p-lg-5">
+                <div class="badge bg-secondary-soft text-secondary rounded-pill px-3 py-2 mb-3"
+                  style="background: rgba(251, 191, 36, 0.1);">Soirée Culturelle</div>
+                <h3 class="fw-bold mb-3">La soirée Annuelle d'irsmouken</h3>
+
+                @if (authService.userData; as user) {
+                <div class="alert alert-success border-0 rounded-4 mb-4 py-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="bg-white rounded-circle p-2 shadow-sm"><i
+                        class="bi bi-person-check-fill text-success fs-4"></i></div>
+                    <div>
+                      <div class="small opacity-75">Bienvenue</div>
+                      <div class="fw-bold">{{user.lastName || 'Membre'}}</div>
+                    </div>
+                  </div>
+                </div>
+                }
+
+                <p class="text-muted mb-4">Nous vous invitons à être nombreux pour cet événement annuel d'irsmouken. Une
+                  soirée riche en partage et en culture.</p>
+                <a routerLink="/EventReadMore" class="btn btn-primary rounded-pill px-4 py-2">Plus d'information</a>
+              </div>
             </div>
           </div>
-        </article><!-- End blog entry -->
+        </article>
 
-        <article class="entry" id="#">
-
-          <div class="entry-img">
-            <img [src]="imageUrl2" alt="" class="img-fluid">
-          </div>
-
-          <h2 class="entry-title">
-            <a href="https://maglor.fr/region-du-maroc/ywm-wtny-llmhajryn-barsmwkn-ahtfa-baldwr-alhywy-llmhajryn-fy-altnmyt">Journée national des MRE Irsmouken (édition 2024): Journée nationale des migrants à Arsmoken :
-            Célébrer le rôle vital des migrants dans le développement</a>
-          </h2>
-
-
-          <div class="entry-content">
-            <h3>Communiqué de la président  de l'association Irsmouken</h3>
-            <p>
-              Comme vous le savez, la journée des MRE du 10 août 2024 a été l’occasion pour notre
-              commune d’Irsmouken de démontrer sa place particulière dans la province de Tiznit et auprès de toutes les autorités.
-              Les acteurs administratifs et étatiques de l’investissement nous ont fait l’honneur de leur présence,
-              le président de la province de Tiznit, le président de la commune de Tiznit,
-              les présidents des communes de El Maader, Agloo, Ouijjane … sont venus nous exposer les opportunités d’investissements
-              et les mesures incitatives dans la province de Tiznit et celles spécifiques pour Irsmouken
-              ( comme le bénéfice exclusif pour les exploitants agricoles de Irsmouken et El maader de l’eau de dessalement qui sera issue d’une des stations d’Aglloo).
-              A cette occasion, les représentants de l’association Espoir du Sud, Mustapha Namouss et moi-même avons parlé de la situation d’Amlal et de la route 115 qui relie Irsmouken à Tiznit.
-              Je joins la vidéo faite de nos interventions.
-            </p>
-            <div class="read-more">
-              <a href="https://agadirtoday.com/fr/la-journee-national-du-migrant-tiznit-reaffirme-les-liens-diaspora-et-developpement/">Plus d'informations</a>
+        <!-- Event 3 -->
+        <article class="card-premium border-0 mb-5 p-4 p-lg-5" id="3">
+          <div class="badge bg-info-soft text-info rounded-pill px-3 py-2 mb-3"
+            style="background: rgba(14, 165, 233, 0.1);">MRE & Développement</div>
+          <h3 class="fw-bold mb-4">Journée nationale des MRE Irsmouken (édition 2024)</h3>
+          <div class="row align-items-center g-4 mb-4">
+            <div class="col-md-4">
+              <img [src]="imageUrl2" alt="MRE event" class="img-fluid rounded-4 shadow-sm">
+            </div>
+            <div class="col-md-8">
+              <h5 class="fw-bold">Célébrer le rôle vital des migrants dans le développement</h5>
+              <p class="text-muted small">La journée des MRE du 10 août 2024 a été l'occasion de démontrer la place
+                particulière d'Irsmouken dans la province de Tiznit.</p>
             </div>
           </div>
+          <blockquote class="border-start border-primary border-4 ps-4 py-2 mb-4 fs-5 italic text-muted"
+            style="font-style: italic;">
+            "Les acteurs administratifs et étatiques ont souligné les opportunités d'investissements et les mesures
+            incitatives spécifiques pour Irsmouken."
+          </blockquote>
+          <a href="https://agadirtoday.com/fr/la-journee-national-du-migrant-tiznit-reaffirme-les-liens-diaspora-et-developpement/"
+            class="btn btn-link text-primary p-0 fw-bold text-decoration-none">Lire le communiqué complet <i
+              class="bi bi-arrow-right ms-1"></i></a>
+        </article>
 
-        </article><!-- End blog entry -->
-
-        <article class="entry" id="#3" >
-
-          <div class="entry-img">
-            <img [src]="imageUrl3" alt="" class="img-fluid">
-          </div>
-
-          <h2 class="entry-title">
-            <p>
-              Nous pouvons conclure que toutes les autorités ont une bonne connaissance des représentants d’Irsmouken et nous pouvons vous assurer de la bonne considération qu’ils ont de nous.
-              Même les absents ont été cités  et toutes les personnes qui ont permis l’existence de ces liens locaux.
-              C’est essentiel et précieux et nous continuerons ensemble à faire rayonner notre identité et nos valeurs d’Imazalen Irsmouken. Al Hamdulillah !
-            </p>
-          </h2>
-
-          <div class="entry-meta">
-            <ul>
-              <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-              <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-              <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-            </ul>
-          </div>
-
-          <div class="entry-content">
-            <p>
-              Nous pouvons conclure que toutes les autorités ont une bonne connaissance des représentants d’Irsmouken et nous pouvons vous assurer de la bonne considération qu’ils ont de nous.
-              Même les absents ont été cités  et toutes les personnes qui ont permis l’existence de ces liens locaux.
-              C’est essentiel et précieux et nous continuerons ensemble à faire rayonner notre identité et nos valeurs d’Imazalen Irsmouken. Al Hamdulillah !
-            </p>
-            <div class="read-more">
-              <a href="blog-single.html">Read More</a>
-            </div>
-          </div>
-
-        </article><!-- End blog entry -->
-
-        <div class="blog-pagination">
-          <ul class="justify-content-center">
-            <li><a href="#1">1</a></li>
-            <li class="active"><a href="#2">2</a></li>
-            <li><a href="#3">3</a></li>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-5">
+          <ul class="pagination pagination-lg justify-content-center border-0">
+            <li class="page-item active" aria-current="page"><span class="page-link rounded-circle mx-1">1</span></li>
+            <li class="page-item"><a class="page-link rounded-circle mx-1 border-0" href="#">2</a></li>
+            <li class="page-item"><a class="page-link rounded-circle mx-1 border-0" href="#">3</a></li>
           </ul>
-        </div>
+        </nav>
+      </div>
 
-      </div><!-- End blog entries list -->
-
+      <!-- Sidebar -->
       <div class="col-lg-4">
-
-        <div class="sidebar">
-          <h3 class="sidebar-title">Les postes recents</h3>
-          <div class="sidebar-item recent-posts">
-            <div class="post-item clearfix">
-              <img src="assets/img/blog/blog-recent-1.jpg" alt="">
-              <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
-              <time datetime="2020-01-01">Jan 1, 2020</time>
+        <aside class="sidebar p-4 p-xl-5 bg-white rounded-5 shadow-sm sticky-top" style="top: 120px;">
+          <h4 class="fw-bold mb-4 position-relative pb-2">
+            Postes récents
+            <span class="position-absolute bottom-0 start-0 bg-primary" style="height: 3px; width: 40px;"></span>
+          </h4>
+          <div class="recent-posts">
+            <div class="post-item d-flex gap-3 mb-4">
+              <img src="assets/img/blog/blog-recent-1.jpg" alt="" class="rounded-3 shadow-sm"
+                style="width: 80px; height: 80px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold mb-1"><a href="#" class="text-dark text-decoration-none hover-primary">Projet Oasis
+                    Durable</a></h6>
+                <time class="small text-muted"><i class="bi bi-clock me-1"></i> 10 Jan, 2024</time>
+              </div>
             </div>
-
-            <div class="post-item clearfix">
-              <img src="assets/img/blog/blog-recent-2.jpg" alt="">
-              <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
-              <time datetime="2020-01-01">Jan 1, 2020</time>
+            <div class="post-item d-flex gap-3 mb-4">
+              <img src="assets/img/blog/blog-recent-2.jpg" alt="" class="rounded-3 shadow-sm"
+                style="width: 80px; height: 80px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold mb-1"><a href="#" class="text-dark text-decoration-none hover-primary">Aide aux
+                    familles rurales</a></h6>
+                <time class="small text-muted"><i class="bi bi-clock me-1"></i> 05 Fév, 2024</time>
+              </div>
             </div>
-
-            <div class="post-item clearfix">
-              <img src="assets/img/blog/blog-recent-3.jpg" alt="">
-              <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-              <time datetime="2020-01-01">Jan 1, 2020</time>
+            <div class="post-item d-flex gap-3">
+              <img src="assets/img/blog/blog-recent-3.jpg" alt="" class="rounded-3 shadow-sm"
+                style="width: 80px; height: 80px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold mb-1"><a href="#" class="text-dark text-decoration-none hover-primary">Inauguration
+                    de la Madrassa</a></h6>
+                <time class="small text-muted"><i class="bi bi-clock me-1"></i> 20 Mar, 2024</time>
+              </div>
             </div>
+          </div>
 
-            <div class="post-item clearfix">
-              <img src="assets/img/blog/blog-recent-4.jpg" alt="">
-              <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
-              <time datetime="2020-01-01">Jan 1, 2020</time>
+          <div class="mt-5 p-4 bg-primary-soft rounded-4" style="background: rgba(34, 197, 94, 0.05);">
+            <h5 class="fw-bold mb-3">Newsletter</h5>
+            <p class="small text-muted mb-3">Inscrivez-vous pour ne rien rater des actualités d'Espoir du Sud.</p>
+            <div class="input-group">
+              <input type="email" class="form-control border-0 shadow-none" placeholder="Votre email"
+                style="font-size: 0.9rem;">
+              <button class="btn btn-primary btn-sm px-3" type="button"><i class="bi bi-send"></i></button>
             </div>
-
-            <div class="post-item clearfix">
-              <img src="assets/img/blog/blog-recent-5.jpg" alt="">
-              <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
-              <time datetime="2020-01-01">Jan 1, 2020</time>
-            </div>
-
-          </div><!-- End sidebar recent posts-->
-
-
-
-        </div><!-- End sidebar -->
-
-      </div><!-- End blog sidebar -->
-
+          </div>
+        </aside>
+      </div>
     </div>
-
   </div>
-</section><!-- End Blog Section -->
+</section>

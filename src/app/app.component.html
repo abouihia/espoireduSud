@@ -5,11 +5,13 @@
 
       <div class="logo-container d-flex align-items-center">
         <a routerLink="/Accueil" class="logo me-3">
-          <img src="assets/img/Logo.jpeg" alt="Logo" class="img-fluid" style="height: 60px; border-radius: 8px;">
+          <img src="assets/img/Logo.jpeg" alt="Logo" class="img-fluid shadow-sm"
+            style="height: 52px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.5);">
         </a>
-        <h1 class="logo-text h5 m-0 d-none d-md-block">
-          <a routerLink="/Accueil">Espoir du Sud<span></span></a>
-        </h1>
+        <div class="d-none d-md-block">
+          <h1 class="h5 m-0 fw-bold"><a routerLink="/Accueil" class="text-dark">Espoir du Sud</a></h1>
+          <span class="text-primary small fw-semibold">Région Resmouka</span>
+        </div>
       </div>
 
       <nav id="navbar" class="navbar" [class.navbar-mobile]="isMobileMenuOpen">
