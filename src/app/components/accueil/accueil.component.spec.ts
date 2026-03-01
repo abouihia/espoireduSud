@@ -20,4 +20,9 @@ describe('AccueilComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display the impact section title', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h2')?.textContent).toContain('Transformer vos dons en résultats concrets');
+  });
 });
