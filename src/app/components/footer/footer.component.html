@@ -7,23 +7,54 @@
       </div>
 
       <div class="col-lg-4">
-        <div class="newsletter-form glass p-3 rounded-4">
+        <div class="newsletter-form glass p-3 rounded-4 position-relative overflow-hidden" style="min-height: 110px;">
+          @if (!showSuccessPopup && !existMail) {
           <label class="form-label small mb-2 d-block text-center text-lg-start">S'inscrire à notre newsletter</label>
-          <div class="input-group">
+          <div class="input-group fade-in-scale">
             <input type="email" [(ngModel)]="email.mail" class="form-control border-0" placeholder="Votre email"
-              style="background: rgba(255,255,255,0.1); color: white;">
-            <button class="btn btn-premium-primary" type="button" (click)="saveEmail()">Souscrire</button>
+              [disabled]="isSubmitting" style="background: rgba(255,255,255,0.1); color: white;">
+            <button class="btn btn-premium-primary position-relative d-flex align-items-center justify-content-center"
+              type="button" (click)="saveEmail()" [disabled]="isSubmitting" style="min-width: 100px;">
+              @if (isSubmitting) {
+              <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Envoi...
+              } @else {
+              Souscrire
+              }
+            </button>
           </div>
+          }
+
+          @else if (showSuccessPopup) {
+          <div
+            class="inline-feedback-container success-feedback fade-in-scale d-flex align-items-center justify-content-center h-100 w-100 rounded-3 absolute-center p-3">
+            <div class="text-center">
+              <i class="bi bi-check-circle-fill text-success fs-4 mb-1 d-block"></i>
+              <span class="small fw-semibold text-white">Merci ! Nous gardons le contact.</span>
+            </div>
+          </div>
+          }
+
+          @else if (existMail) {
+          <div
+            class="inline-feedback-container warning-feedback fade-in-scale shake-animation d-flex align-items-center justify-content-center h-100 w-100 rounded-3 absolute-center p-3">
+            <div class="text-center">
+              <i class="bi bi-exclamation-triangle-fill text-warning fs-4 mb-1 d-block"></i>
+              <span class="small fw-semibold text-white">Cet e-mail est déjà inscrit !</span>
+            </div>
+          </div>
+          }
         </div>
       </div>
 
       <div class="col-lg-4 text-center text-lg-end">
         <div class="social-links">
           <a href="#" class="me-3 text-white" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-          <a href="https://www.facebook.com/espoir.dusud" class="me-3 text-white" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/espoir.dusud" class="me-3 text-white" aria-label="Facebook"><i
+              class="bi bi-facebook"></i></a>
           <a href="#" class="me-3 text-white" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.youtube.com/results?search_query=espoir+du+sud" class="text-white" aria-label="YouTube"><i
-              class="bi bi-youtube"></i></a>
+          <a href="https://www.youtube.com/results?search_query=espoir+du+sud" class="text-white"
+            aria-label="YouTube"><i class="bi bi-youtube"></i></a>
         </div>
       </div>
     </div>
@@ -36,5 +67,5 @@
   </div>
 </footer>
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center" [class.active]="isScrolled" aria-label="Retour en haut"><i
-    class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center" [class.active]="isScrolled"
+  aria-label="Retour en haut"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,0 +1,77 @@
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fade-in-scale {
+    animation: fadeInScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Specific styling for the initial state so it doesn't get translation applied directly but still fades in */
+.input-group.fade-in-scale {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.shake-animation {
+    animation: fadeInScale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, shake 0.5s ease-in-out 0.3s forwards;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) rotate(-3deg);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(3deg);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) rotate(-3deg);
+    }
+}
+
+.inline-feedback-container {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.success-feedback {
+    background: rgba(16, 185, 129, 0.15);
+    /* Tailwind emerald-500 semi-transparent */
+}
+
+.warning-feedback {
+    background: rgba(245, 158, 11, 0.15);
+    /* Tailwind amber-500 semi-transparent */
+}
