@@ -938,3 +938,15 @@ body.mobile-menu-open {
     background: radial-gradient(circle, rgba(var(--primary-rgb), 0.1) 0%, transparent 70%);
     pointer-events: none;
 }
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}

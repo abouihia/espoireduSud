@@ -56,7 +56,7 @@
 
       <div class="header-social-links d-none d-lg-flex align-items-center">
         @if (!authService.userData) {
-        <a routerLink="/Connexion" class="get-started-btn">Connexion</a>
+        <a routerLink="/Connexion" class="get-started-btn">Se Connecter</a>
         }
         @if (authService.userData) {
         <button type="button" class="btn btn-outline-success btn-sm ms-3" (click)="authService.SignOut()">

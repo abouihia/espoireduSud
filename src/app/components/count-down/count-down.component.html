@@ -1,8 +1,10 @@
 
 
 <div class="timer">
-  <span id="motnts">{{calculateDiff().months}}  mois </span>
-  <span id="days"> et {{calculateDiff().days}}  jours </span>
+  @if( calculateDiff().months > 0 ){
+  <span id="motnts">{{calculateDiff().months}}  mois et</span>
+  }
+  <span id="days">  {{calculateDiff().days}}  jours </span>
 
 </div>
 

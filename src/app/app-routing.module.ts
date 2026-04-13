@@ -18,7 +18,7 @@ import { AccesDroitsComponent } from './components/acces-droits/acces-droits.com
 import { DemocratiesComponent } from './components/democraties/democraties.component';
 import { EventReadMoreComponent } from './components/event-read-more/event-read-more.component';
 import { HistoireComponent } from './components/histoire/histoire.component';
-
+import { IfqirnComponent } from './components/ifqirn/ifqirn.component';
 TeamComponent
 export const routes: Routes = [
 { path: 'Histoire',component:HistoireComponent},
@@ -36,6 +36,7 @@ export const routes: Routes = [
 { path: 'AccesDroits', component: AccesDroitsComponent },
 { path: 'Democraties', component: DemocratiesComponent },
 { path: 'EventReadMore', component: EventReadMoreComponent },
+{ path: 'Ifqirn', component: IfqirnComponent },
 { path: '', redirectTo: '/Event', pathMatch: 'full'}
 ];
 
