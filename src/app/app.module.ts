@@ -16,10 +16,13 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 import { NgxPayPalModule } from 'ngx-paypal';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
+import {TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
-
+import { provideTranslateService } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -35,9 +38,20 @@ import { NgxPayPalModule } from 'ngx-paypal';
     AngularFireAuthModule,
     AngularFirestoreModule, // for firestore
     NgxPayPalModule,
+    HttpClientModule,
+     TranslateModule.forRoot() // ✅ REQUIRED
 
   ],
-  providers: [BsModalService],
+  providers: [BsModalService,
+
+    provideTranslateService({
+      loader: provideTranslateHttpLoader({
+        prefix: './assets/i18n/',
+        suffix: '.json'
+      }),
+      fallbackLang: 'fr'
+    })
+    ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

@@ -34,16 +34,42 @@ export class CountDownComponent  {
         return{ months, days}
      }
 
+/*
+   les différentes scénarios:before,  same, after
+
+         let dateWada = 2026-05-01
+         let currentDate = 2026-05-10;
+
+         1-cas  date wada est inférieur a current date:
+         if(currentDate.getMonth()>= dateWada.getMonth() && currentDate.getDate()> dateWada.getDate()  ){
+           let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear()+1, 4, 1)) ;
+         }
+
+       2-cas  date wada est superieur a current date:
+          let dateWada = 2026-05-01
+          let currentDate = 2026-04-10;
+         else if(dateWada.getMonth()>=currentDate.getMonth()   ){
+             let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
+          }else{
+         3-cas  date wada est superieur a current date:
+             let dateWada = 2026-05-01
+             let currentDate = 2026-05-01;
+          let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
+          }
+
+
+*/
 
    calculateDiff(){
          let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
          let currentDate = new Date();
-         if( currentDate.getMonth() >  dateWada.getMonth()){
+         if( currentDate.getMonth() >=  dateWada.getMonth() && currentDate.getDate()> dateWada.getDate()){
             let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear()+1, 4, 1)) ;
             return this.diffInMonthsAndDays(currentDate, dateWada);
          }else{
-           return this.diffInMonthsAndDays(currentDate, dateWada);
-         }
+               let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
+               return this.diffInMonthsAndDays(currentDate, dateWada);
+             }
 
 
     }

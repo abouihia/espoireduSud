@@ -17,15 +17,15 @@
       <nav id="navbar" class="navbar" [class.navbar-mobile]="isMobileMenuOpen">
         <ul>
           <li><a class="nav-link" routerLink="/Accueil" routerLinkActive="active-link"
-              [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Accueil</a></li>
+              [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{ 'home' | translate }}</a></li>
           <li><a class="nav-link" routerLink="/Histoire" routerLinkActive="active-link"
-              (click)="closeMobileMenu()">Notre histoire</a></li>
+              (click)="closeMobileMenu()">{{ 'Histoire' | translate }}</a></li>
           <li><a class="nav-link" routerLink="/Event" routerLinkActive="active-link"
-              (click)="closeMobileMenu()">Actualité</a></li>
+              (click)="closeMobileMenu()">{{ 'actualité' | translate }}</a></li>
           <li><a class="nav-link" routerLink="/Services" routerLinkActive="active-link"
-              (click)="closeMobileMenu()">Services</a></li>
+              (click)="closeMobileMenu()">{{ 'services' | translate }}</a></li>
           <li class="dropdown"><a href="javascript:void(0)" (click)="toggleDropdown($event)"
-              aria-haspopup="true"><span>Démocratie & droits</span> <i class="bi bi-chevron-down"></i></a>
+              aria-haspopup="true"><span>{{ 'droit' | translate }}</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a routerLink="/AccesDroits" routerLinkActive="active-link" (click)="closeMobileMenu()">Accès aux
                   droits</a></li>
@@ -34,9 +34,9 @@
             </ul>
           </li>
           <li><a class="nav-link" routerLink="/Team" routerLinkActive="active-link"
-              (click)="closeMobileMenu()">Equipe</a></li>
+              (click)="closeMobileMenu()">{{ 'equipe' | translate }}</a></li>
           <li><a class="nav-link" routerLink="/Contact" routerLinkActive="active-link"
-              (click)="closeMobileMenu()">Contact</a></li>
+              (click)="closeMobileMenu()">{{ 'contact' | translate }}</a></li>
           @if (authService.userData; as user) {
           <li><a class="nav-link" routerLink="/Photos" routerLinkActive="active-link"
               (click)="closeMobileMenu()">Photos</a></li>
@@ -44,7 +44,17 @@
               style="color: #dc3545;">Déconnexion</a></li>
           } @else {
           <li><a class="nav-link d-lg-none" routerLink="/Connexion" routerLinkActive="active-link"
-              (click)="closeMobileMenu()">Connexion</a></li>
+              (click)="closeMobileMenu()">{{ 'Connexion' | translate }}</a></li>
+          <li class="dropdown lang-dropdown">
+            <a href="javascript:void(0)" (click)="langDropdownOpen = !langDropdownOpen" class="lang-toggle">
+              <span>{{ lang === 'fr' ? '🇫🇷' : '🇲🇦' }}</span>
+              <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul [class.dropdown-active]="langDropdownOpen">
+              <li><a href="javascript:void(0)" (click)="changeLang('fr')" [class.active]="lang === 'fr'">🇫🇷 Français</a></li>
+              <li><a href="javascript:void(0)" (click)="changeLang('ar')" [class.active]="lang === 'ar'">🇲🇦 العربية</a></li>
+            </ul>
+          </li>
           }
         </ul>
         <button type="button" class="mobile-nav-toggle"

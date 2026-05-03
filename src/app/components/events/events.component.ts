@@ -17,7 +17,21 @@ export class EventsComponent {
      imageUrl2= 'assets/img/mre/Journee_MRE1.jpg';
      imageUrl3= 'assets/img/mre/Journee_MRE4.jpg'
 
-     dateWadaa = new Date().getUTCFullYear();
+
+     getDataWada(){
+        let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
+        let currentDate = new Date();
+         if( currentDate.getMonth() >=  dateWada.getMonth() && currentDate.getDate()> dateWada.getDate()){
+
+          return new Date().getUTCFullYear()+1
+         }
+          return new Date().getUTCFullYear()
+
+      }
+
+
+
+
 
 
 

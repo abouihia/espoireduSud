@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,26 @@ import { AuthService } from './services/auth.service';
   styleUrl: '../assets/css/style.css',
   standalone: false
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Espoir du sud';
   isMobileMenuOpen = false;
+  langDropdownOpen = false;
+    lang = '';
+  ngOnInit() {
+    this.lang = localStorage.getItem('lang') || 'fr';
+  }
 
-  constructor(public authService: AuthService) { }
+  changeLang(selectedLanguage: string) {
+    this.lang = selectedLanguage;
+    localStorage.setItem('lang', selectedLanguage);
+    this.translateService.use(selectedLanguage);
+    this.langDropdownOpen = false;
+  }
+
+  constructor(public authService: AuthService, public translateService: TranslateService) {
+      this.translateService .setDefaultLang('fr');
+      this.translateService .use(localStorage.getItem('lang')|| 'fr');
+      }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
@@ -35,6 +51,15 @@ export class AppComponent {
 
     if (dropdownMenu) {
       dropdownMenu.classList.toggle('dropdown-active');
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const isLangDropdown = target.closest('.lang-dropdown');
+    if (!isLangDropdown) {
+      this.langDropdownOpen = false;
     }
   }
 }
