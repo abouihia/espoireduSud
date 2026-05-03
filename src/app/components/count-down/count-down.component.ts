@@ -48,6 +48,19 @@ export class CountDownComponent  {
 
     }
 
+    calculateDiffBis(){
+         let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
+         let currentDate = new Date();
+         if( currentDate.getMonth() >  dateWada.getMonth()){
+            let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear()+1, 4, 1)) ;
+            return this.diffInMonthsAndDays(currentDate, dateWada);
+         }else{
+           return this.diffInMonthsAndDays(currentDate, dateWada);
+         }
+
+
+    }
+
 
 
 }

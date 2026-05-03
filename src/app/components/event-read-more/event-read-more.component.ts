@@ -8,6 +8,23 @@ import { Component } from '@angular/core';
 })
 export class EventReadMoreComponent {
 
-     dateWadaa = new Date().getUTCFullYear();
+
+   getYear() {
+      const now = new Date();  // declare the  object date
+      const year = now.getUTCFullYear(); // get the year od the date
+       //Get the day and month of the year
+       const day = now.getDate();
+       const month = now.getMonth() + 1;
+
+       return (day > 1 || month > 5) ? year + 1 : year;
+       }
+
+   getEdition(){
+      const dateFirsWada =  1932;
+      const now = new Date();  // declare the  object date
+      const year = now.getUTCFullYear(); // get the year od the date
+      return  year-dateFirsWada;
+
+   }
 
 }

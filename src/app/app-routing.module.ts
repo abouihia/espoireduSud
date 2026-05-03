@@ -20,6 +20,7 @@ import { EventReadMoreComponent } from './components/event-read-more/event-read-
 import { HistoireComponent } from './components/histoire/histoire.component';
 import { IfqirnComponent } from './components/ifqirn/ifqirn.component';
 import { SoireeAnnuelComponent } from './components/soiree-annuel/soiree-annuel.component';
+import { WadaTelbaComponent } from './components/wada-telba/wada-telba.component';
 TeamComponent
 export const routes: Routes = [
 { path: 'Histoire',component:HistoireComponent},
@@ -38,6 +39,7 @@ export const routes: Routes = [
 { path: 'Democraties', component: DemocratiesComponent },
 { path: 'EventReadMore', component: EventReadMoreComponent },
 { path: 'Ifqirn', component: IfqirnComponent },
+{ path: 'WadaTelba', component: WadaTelbaComponent },
 { path: 'Soiree', component: SoireeAnnuelComponent },
 { path: '', redirectTo: '/Event', pathMatch: 'full'}
 ];

@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;500;700&display=swap');
+
+:host {
+    --color-green: #1B4D3E;
+    --color-gold: #D4AF37;
+    --color-parchment: #F4F1EA;
+    --color-text: #2F2F2F;
+    --color-surface: #FFFFFF;
+}
+
+.contact {
+    background-color: var(--color-parchment);
+    padding: 80px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-text);
+    min-height: auto; /* Assure que la section s'adapte au contenu */
+}
+
+.section-title h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 2px;
+    background: var(--color-gold);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.since-badge {
+    color: var(--color-gold);
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.intro-text .lead {
+    color: var(--color-green);
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.wada-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 40px 30px;
+    border-radius: 8px;
+    height: 100%;
+    min-height: 250px; /* Ajout d'une hauteur minimale */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.wada-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 20px 40px rgba(27, 77, 62, 0.08);
+    transform: translateY(-10px);
+}
+
+.wada-card .icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.wada-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-green);
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.wada-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    .contact {
+        padding: 40px 0; /* Réduction du padding sur mobile */
+    }
+    .wada-card {
+        margin-bottom: 10px; /* Espace entre les cartes empilées */
+    }
+}
