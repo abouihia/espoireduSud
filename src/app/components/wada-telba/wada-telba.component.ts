@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './wada-telba.component.css',
 })
 export class WadaTelbaComponent {
+  isCommuniqueExpanded = false;
 
+  toggleCommunique() {
+    this.isCommuniqueExpanded = !this.isCommuniqueExpanded;
+  }
 }
+

@@ -12,9 +12,63 @@
                 Chaque année, le 01 Mai, nous nous réunissons pour perpétuer l'héritage de nos aïeux et porter le flambeau pour les prochaines générations. 
                 C'est un moment sacré de retrouvilles et de solidarité pour la diaspora d'Irsmouken en France.
             </p>
-            <p data-aos="fade-up" data-aos-delay="100">
-             Le communiqué officiel
+        <div class="communique-section mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="communique-wrapper" [class.expanded]="isCommuniqueExpanded">
+                <button class="communique-header" (click)="toggleCommunique()" [attr.aria-expanded]="isCommuniqueExpanded">
+                    <span class="header-title">Communiqué : Wahda n’tlba 2026</span>
+                    <span class="chevron-icon" [class.rotated]="isCommuniqueExpanded">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                </button>
+                
+                <div class="communique-content">
+                    <div class="content-inner">
+                        <h3 class="main-title">Wahda n’tlba 2026 : La Communauté Irsmouken de France continue de se mobiliser pour sa Lmdrss</h3>
+                        
+                        <p>Le 1er mai dernier, la communauté Irsmouken établie en France s’est réunie, fidèle à ses traditions séculaires, pour célébrer Wahda n’tlba. Plus qu’une simple rencontre, cet événement marque toujours une étape cruciale pour l’avenir de l’enseignement traditionnel à Resmouka (Province de Tiznit (Maroc)).</p>
+
+                        <div class="info-block">
+                            <h4>Un héritage historique depuis 1934</h4>
+                            <p>Il est essentiel de rappeler la profondeur de cet engagement. Selon les récits précieux transmis par nos aînés, cette rencontre rituelle remonte à 1934. En nous réunissant en 2026, nous perpétuons un héritage de solidarité vieux de 92 ans. C’est ce lien indéfectible entre les racines du passé et les ambitions de demain qui fait la force et le ciment de notre communauté.</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h4>Un passage de relais intergénérationnel</h4>
+                            <p>L’édition de cette année a rassemblé plus d'une trentaine de participants dans une atmosphère de fraternité. Fait marquant et porteur d’espoir : la présence active de nombreux jeunes. Ce relais pris par les nouvelles générations assure que le flambeau allumé par nos ancêtres continuera de briller.</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h4>Un premier succès pour le fonctionnement de l’institut</h4>
+                            <p>L'événement a officiellement lancé la campagne de collecte de fonds pour la gestion courante de la Madrassa. Grâce à la générosité des membres présents, plus de 2 500 € ont été récoltés en une seule journée.</p>
+                            <blockquote class="quote">
+                                « Ce soutien est vital pour permettre aux plus de 100 tolbas (étudiants) qui fréquentent l’institut de poursuivre leur apprentissage dans de bonnes conditions. » 
+                                <cite>— Monsieur Dabach.</cite>
+                            </blockquote>
+                        </div>
+
+                        <div class="info-block">
+                            <h4>Le Grand Projet : Reconstruction et Modernisation</h4>
+                            <p>Monsieur Dabach a présenté un point de situation exhaustif sur l'état de lmdrss Irsmouken. Si le fonctionnement quotidien est assuré, l’institut nécessite aujourd'hui des travaux d'envergure.</p>
+                            <p>Le plan de reconstruction présenté affiche un budget de plus de 550 000 €. Ce projet ambitieux vise à transformer l'école en un complexe moderne et autonome :</p>
+                            <ul class="project-list">
+                                <li><strong>Espaces de vie et d'étude :</strong> Nouvelles salles de prières, logements décents pour les étudiants et sanitaires modernes.</li>
+                                <li><strong>Pérennité financière :</strong> Construction de boutiques destinées à la location. Les loyers perçus constitueront un système d'autofinancement durable pour l'école.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cta-block">
+                            <h4>Prochaine étape : Mobilisation en Juin 2026</h4>
+                            <p>Face à l'état de vétusté de certains bâtiments, la modernisation est devenue une urgence absolue. Nous ne pouvons laisser ce monument de notre culture se dégrader.</p>
+                            <div class="alert-info">
+                                <strong>Notez dans vos agendas :</strong> Une rencontre stratégique dédiée exclusivement à la levée de fonds pour la reconstruction est programmée pour le mois de juin 2026. Cette date vous sera communiquée sur notre site web.
+                            </div>
+                            <p class="final-word">Nous comptons sur la solidarité de chacun pour bâtir l'avenir de la Madrassa Irsmouken.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
 
         <div class="row g-4">
             <!-- Pilier 1 -->
@@ -54,5 +108,6 @@
             </div>
         </div>
 
+    </div>
     </div>
 </section>
