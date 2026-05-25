@@ -25,6 +25,7 @@ import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideTranslateService } from '@ngx-translate/core';
 
 
+
 @NgModule({
   declarations: [
     AppComponent

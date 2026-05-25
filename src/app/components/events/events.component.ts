@@ -22,11 +22,9 @@ export class EventsComponent {
         let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
         let currentDate = new Date();
          if( currentDate.getMonth() >=  dateWada.getMonth() && currentDate.getDate()> dateWada.getDate()){
-
-          return new Date().getUTCFullYear()+1
+          return currentDate.getUTCFullYear()+1
          }
-          return new Date().getUTCFullYear()
-
+          return currentDate.getUTCFullYear()
       }
 
 

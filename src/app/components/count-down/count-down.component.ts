@@ -26,11 +26,9 @@ export class CountDownComponent  {
     // Date after adding full months
       const anchor = new Date(start);
       anchor.setMonth(anchor.getMonth() + months);
-
       const days = Math.floor(
           (end.getTime() - anchor.getTime()) / (1000 * 60 * 60 * 24)
         );
-
         return{ months, days}
      }
 
@@ -61,32 +59,14 @@ export class CountDownComponent  {
 */
 
    calculateDiff(){
-         let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
          let currentDate = new Date();
+         let dateWada =  new  Date(Date.UTC(currentDate.getUTCFullYear(), 4, 1)) ;
          if( currentDate.getMonth() >=  dateWada.getMonth() && currentDate.getDate()> dateWada.getDate()){
-            let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear()+1, 4, 1)) ;
+            let dateWada =  new  Date(Date.UTC(currentDate.getUTCFullYear()+1, 4, 1)) ;
             return this.diffInMonthsAndDays(currentDate, dateWada);
          }else{
-               let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
                return this.diffInMonthsAndDays(currentDate, dateWada);
-             }
-
-
-    }
-
-    calculateDiffBis(){
-         let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear(), 4, 1)) ;
-         let currentDate = new Date();
-         if( currentDate.getMonth() >  dateWada.getMonth()){
-            let dateWada =  new  Date(Date.UTC(new Date().getUTCFullYear()+1, 4, 1)) ;
-            return this.diffInMonthsAndDays(currentDate, dateWada);
-         }else{
-           return this.diffInMonthsAndDays(currentDate, dateWada);
          }
-
-
     }
-
-
 
 }
