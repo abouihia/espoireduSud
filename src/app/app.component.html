@@ -94,3 +94,23 @@
 
   <app-footer class="app-footer"></app-footer>
 </div>
+
+<!-- Modale Aïd Moubarak -->
+<div class="eid-modal-overlay" *ngIf="showEidModal" (click)="closeEidModal()">
+  <div class="eid-modal-card" (click)="$event.stopPropagation()">
+    <button class="eid-modal-close" (click)="closeEidModal()" aria-label="Fermer">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <div class="eid-modal-body">
+      <img src="assets/img/AidMoubarak_2026.jpeg" alt="Aïd Moubarak" class="img-fluid eid-image">
+      <div class="eid-text-content">
+        <h3 class="eid-title">Aid Moubarak Said</h3>
+        <p class="eid-message-ar">عيد مبارك سعيد وكل عام وأنتم بخير</p>
+        <p class="eid-message-fr">L'association Espoir du Sud vous souhaite une excellente fête de l'Aïd. Que cette occasion vous apporte joie, paix et prospérité.</p>
+        <button class="btn-premium-primary w-100 py-3 mt-3" (click)="closeEidModal()">
+          <span>Merci !</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
