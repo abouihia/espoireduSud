@@ -12,9 +12,20 @@ export class AppComponent implements OnInit {
   title = 'Espoir du sud';
   isMobileMenuOpen = false;
   langDropdownOpen = false;
-    lang = '';
+  lang = '';
+  showEidModal = false;
+
   ngOnInit() {
     this.lang = localStorage.getItem('lang') || 'fr';
+    const dismissed = localStorage.getItem('eidModalDismissed_2026');
+    if (!dismissed) {
+      this.showEidModal = true;
+    }
+  }
+
+  closeEidModal() {
+    this.showEidModal = false;
+    localStorage.setItem('eidModalDismissed_2026', 'true');
   }
 
   changeLang(selectedLanguage: string) {
