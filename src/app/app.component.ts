@@ -17,7 +17,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.lang = localStorage.getItem('lang') || 'fr';
-    const dismissed = localStorage.getItem('eidModalDismissed_2026');
+
+    /*
+    lors des fêtes de l'aid el kebir  on ajout un modal pour montrer un popup  qui souhaites bon fetes
+    ici j'ai mis la variable a true la prochaine fois  je decommente le localStorage
+    */
+    const dismissed = true; //localStorage.getItem('eidModalDismissed_2026');
     if (!dismissed) {
       this.showEidModal = true;
     }

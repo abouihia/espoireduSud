@@ -64,3 +64,10 @@ ng build --configuration=production  /*  mode developement et par defaut product
 # se connecter à la base de données:
 
 https://console.firebase.google.com/
+
+
+# Lors des fêtes comme l'aid el Kebi
+
+il suffit d'aller au fichier  app.component.ts  et tu mets ceci :
+
+' const dismissed = localStorage.getItem('eidModalDismissed_2026'); '
