@@ -9,6 +9,7 @@
 /docs/
 .angular/cache/
 
+../../../.angular/cache/*
 # Node modules and dependency files
 /node_modules/
 /package-lock.json

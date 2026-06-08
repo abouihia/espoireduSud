@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Contact } from '../models/contact.model';
 import { Email } from '../models/email.model';
 import { Membre } from '../models/membre.model';
+import { Commercant } from '../models/commercant.model';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
@@ -14,23 +15,18 @@ providedIn: 'root'
 export class ContactService {
 
 
-      private dbContact = '/contact';
-      private  dbEmailAdresse = '/emails';
-      private dbMembre ='/membre'  // to delete
-
       emailRef: AngularFirestoreCollection<Email>;
       contactsRef: AngularFirestoreCollection<Contact>;
+      commercantRef : AngularFirestoreCollection<Commercant>;
       membreRef: AngularFirestoreCollection<Membre>; // to delete
 
 
-      constructor(private db: AngularFirestore,
-                  private db2: AngularFirestore, 
-                  private db3:AngularFirestore) {
-
-          this.contactsRef =  db.collection(this.dbContact);
-          this.emailRef    = db2.collection(this.dbEmailAdresse);
-          this.membreRef   = db3.collection(this.dbMembre);
-        }
+      constructor(private db: AngularFirestore) {
+          this.contactsRef  = this.db.collection( '/contact');
+          this.emailRef     = this.db.collection('/emails');
+          this.membreRef    = this.db.collection('/membre');
+          this.commercantRef= this.db.collection('/commercants');
+      }
 
         /* recupérer les listes */
         getAllContact(): AngularFirestoreCollection<Contact> {
@@ -42,7 +38,10 @@ export class ContactService {
         getAllMembre(): AngularFirestoreCollection<Membre> {
           return this.membreRef;
         }
+        getAllCommercant():AngularFirestoreCollection<Commercant>{
+            return  this.commercantRef;
 
+        }
 
     
 
@@ -69,12 +68,6 @@ export class ContactService {
           delete(id: string): Promise<void> {
             return this.contactsRef.doc(id).delete();
           }
-
-
-
-
-
-
 
 
 }

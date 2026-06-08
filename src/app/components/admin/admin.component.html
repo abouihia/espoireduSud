@@ -1,0 +1,442 @@
+<section id="page-header" class="py-5 bg-dark text-white text-center"
+  style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('assets/img/hero-bg.jpg') center/cover;">
+  <div class="container py-4" data-aos="fade-down">
+    <h1 class="display-4 fw-bold mb-3">Administration E-Sud</h1>
+    <p class="lead opacity-75 mx-auto" style="max-width: 700px;">
+      Espace d'administration centralisé pour le pilotage des membres, commerçants, messages de contact, et abonnés.
+    </p>
+  </div>
+</section>
+
+<section class="admin-section py-5 bg-light">
+  <div class="container" data-aos="fade-up">
+
+    <!-- Dashboard Tabs Navigation -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <ul class="nav nav-pills justify-content-center bg-white p-2 rounded-4 shadow-sm gap-2" style="border: 1px solid rgba(0,0,0,0.05);">
+          <li class="nav-item">
+            <button class="nav-link rounded-3 px-4 py-2 fw-semibold d-flex align-items-center gap-2" 
+                    [class.active]="activeTab === 'overview'" 
+                    (click)="setActiveTab('overview')">
+              <i class="bi bi-grid-1x2-fill"></i> Vue d'ensemble
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link rounded-3 px-4 py-2 fw-semibold d-flex align-items-center gap-2" 
+                    [class.active]="activeTab === 'commercants'" 
+                    (click)="setActiveTab('commercants')">
+              <i class="bi bi-shop"></i> Commerçants
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link rounded-3 px-4 py-2 fw-semibold d-flex align-items-center gap-2" 
+                    [class.active]="activeTab === 'membres'" 
+                    (click)="setActiveTab('membres')">
+              <i class="bi bi-people-fill"></i> Membres
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link rounded-3 px-4 py-2 fw-semibold d-flex align-items-center gap-2" 
+                    [class.active]="activeTab === 'contacts'" 
+                    (click)="setActiveTab('contacts')">
+              <i class="bi bi-envelope-fill"></i> Messages
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link rounded-3 px-4 py-2 fw-semibold d-flex align-items-center gap-2" 
+                    [class.active]="activeTab === 'emails'" 
+                    (click)="setActiveTab('emails')">
+              <i class="bi bi-newspaper"></i> Newsletter
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TAB 1: OVERVIEW -->
+    <div *ngIf="activeTab === 'overview'" class="tab-pane-fade">
+      
+      <!-- Stats Summary Cards -->
+      <div class="row g-4 mb-5">
+        <!-- Commerçants Card -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white text-center cursor-pointer hover-card" 
+               (click)="setActiveTab('commercants')" style="transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer;">
+            <div class="avatar-circle mx-auto mb-3 bg-success-soft text-success d-flex align-items-center justify-content-center"
+                 style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; background: rgba(34, 197, 94, 0.1);">
+              <i class="bi bi-shop"></i>
+            </div>
+            <h6 class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.8rem; letter-spacing: 0.05em;">Commerçants</h6>
+            <h2 class="fw-bold mb-0 text-dark">{{ commercants.length }}</h2>
+          </div>
+        </div>
+
+        <!-- Membres Card -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white text-center cursor-pointer hover-card" 
+               (click)="setActiveTab('membres')" style="transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer;">
+            <div class="avatar-circle mx-auto mb-3 bg-primary-soft text-primary d-flex align-items-center justify-content-center"
+                 style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; background: rgba(34, 197, 94, 0.1);">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h6 class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.8rem; letter-spacing: 0.05em;">Membres</h6>
+            <h2 class="fw-bold mb-0 text-dark">{{ membres.length }}</h2>
+          </div>
+        </div>
+
+        <!-- Messages Card -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white text-center cursor-pointer hover-card" 
+               (click)="setActiveTab('contacts')" style="transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer;">
+            <div class="avatar-circle mx-auto mb-3 bg-info-soft text-info d-flex align-items-center justify-content-center"
+                 style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; background: rgba(14, 165, 233, 0.1);">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <h6 class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.8rem; letter-spacing: 0.05em;">Messages</h6>
+            <h2 class="fw-bold mb-0 text-dark">{{ contacts.length }}</h2>
+          </div>
+        </div>
+
+        <!-- Newsletter Card -->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white text-center cursor-pointer hover-card" 
+               (click)="setActiveTab('emails')" style="transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer;">
+            <div class="avatar-circle mx-auto mb-3 bg-warning-soft text-warning d-flex align-items-center justify-content-center"
+                 style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; background: rgba(245, 158, 11, 0.1);">
+              <i class="bi bi-newspaper"></i>
+            </div>
+            <h6 class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.8rem; letter-spacing: 0.05em;">Newsletter</h6>
+            <h2 class="fw-bold mb-0 text-dark">{{ emails.length }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Previews -->
+      <div class="row g-4">
+        <!-- Recent Commerçants Preview -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-shop me-2 text-success"></i> Nouveaux Commerçants</h5>
+              <button class="btn btn-sm btn-light rounded-pill px-3" (click)="setActiveTab('commercants')">Voir tout</button>
+            </div>
+            <div class="list-group list-group-flush" *ngIf="commercants && commercants.length > 0; else emptyState">
+              <div class="list-group-item d-flex align-items-center justify-content-between py-3 border-0 border-bottom px-0" 
+                   *ngFor="let item of commercants.slice(0, 3)">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="avatar-sm d-flex align-items-center justify-content-center rounded-circle text-white fw-bold" 
+                       [style.background]="getAvatarColor(item)" style="width: 38px; height: 38px; font-size: 0.9rem;">
+                    {{ getInitials(item) }}
+                  </div>
+                  <div>
+                    <h6 class="mb-0 fw-semibold text-dark">{{ item.Prenom }} {{ item.Nom }}</h6>
+                    <small class="text-muted">Inscrit sur la plateforme</small>
+                  </div>
+                </div>
+                <span class="badge bg-success-soft text-success rounded-pill px-2 py-1">Actif</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Membres Preview -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-people-fill me-2 text-primary"></i> Membres Récents</h5>
+              <button class="btn btn-sm btn-light rounded-pill px-3" (click)="setActiveTab('membres')">Voir tout</button>
+            </div>
+            <div class="list-group list-group-flush" *ngIf="membres && membres.length > 0; else emptyState">
+              <div class="list-group-item d-flex align-items-center justify-content-between py-3 border-0 border-bottom px-0" 
+                   *ngFor="let item of membres.slice(0, 3)">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="avatar-sm d-flex align-items-center justify-content-center rounded-circle text-white fw-bold" 
+                       [style.background]="getMemberAvatarColor(item)" style="width: 38px; height: 38px; font-size: 0.9rem;">
+                    {{ getMemberInitials(item) }}
+                  </div>
+                  <div>
+                    <h6 class="mb-0 fw-semibold text-dark">{{ item.firstName }} {{ item.lastName }}</h6>
+                    <small class="text-muted">{{ item.email }}</small>
+                  </div>
+                </div>
+                <span class="badge rounded-pill px-2 py-1" 
+                      [class.bg-success-soft]="item.emailVerified" 
+                      [class.text-success]="item.emailVerified"
+                      [class.bg-warning-soft]="!item.emailVerified" 
+                      [class.text-warning]="!item.emailVerified">
+                  {{ item.emailVerified ? 'Vérifié' : 'En attente' }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Messages Preview -->
+        <div class="col-lg-12 mt-4">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-envelope-fill me-2 text-info"></i> Messages Récents</h5>
+              <button class="btn btn-sm btn-light rounded-pill px-3" (click)="setActiveTab('contacts')">Voir tout</button>
+            </div>
+            <div class="row g-3" *ngIf="contacts && contacts.length > 0; else emptyState">
+              <div class="col-md-4" *ngFor="let item of contacts.slice(0, 3)">
+                <div class="p-3 rounded-3 border h-100 bg-light-soft" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="avatar-sm d-flex align-items-center justify-content-center rounded-circle text-white fw-bold" 
+                         [style.background]="getContactAvatarColor(item)" style="width: 30px; height: 30px; font-size: 0.8rem;">
+                      {{ getContactInitials(item) }}
+                    </div>
+                    <span class="fw-semibold text-dark text-truncate" style="max-width: 150px;">{{ item.name }}</span>
+                  </div>
+                  <h6 class="fw-bold text-dark text-truncate mb-1">{{ item.sujet }}</h6>
+                  <p class="small text-muted text-truncate-3 mb-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; height: 3.6rem;">
+                    {{ item.message }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: COMMERCANTS -->
+    <div *ngIf="activeTab === 'commercants'" class="tab-pane-fade">
+      <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+        <!-- Section Header & Search -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+          <div>
+            <h3 class="fw-bold mb-1 text-dark">Gestion des Commerçants</h3>
+            <p class="text-muted small mb-0">Rechercher et filtrer les commerçants enregistrés</p>
+          </div>
+          <!-- Search Bar -->
+          <div class="input-group" style="max-width: 320px;">
+            <span class="input-group-text bg-light border-0 text-muted"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control bg-light border-0" placeholder="Rechercher..." [(ngModel)]="searchQuery">
+          </div>
+        </div>
+
+        <!-- List View -->
+        <div class="text-center py-5" *ngIf="!filteredCommercants || filteredCommercants.length === 0">
+          <div class="mb-3">
+            <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+          </div>
+          <p class="text-muted fs-5">Aucun commerçant ne correspond à votre recherche.</p>
+        </div>
+
+        <div class="table-responsive" *ngIf="filteredCommercants && filteredCommercants.length > 0">
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr class="text-muted" style="font-size: 0.85rem; border-bottom: 2px solid #f8fafc; font-weight: 700; text-transform: uppercase;">
+                <th scope="col" class="py-3 px-4">Commerçant</th>
+                <th scope="col" class="py-3">Nom</th>
+                <th scope="col" class="py-3">Prénom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filteredCommercants" style="border-bottom: 1px solid #f1f5f9;">
+                <td class="py-3 px-4">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="avatar-sm d-flex align-items-center justify-content-center rounded-circle text-white fw-bold" 
+                         [style.background]="getAvatarColor(item)" style="width: 42px; height: 42px;">
+                      {{ getInitials(item) }}
+                    </div>
+                    <div>
+                      <div class="fw-bold text-dark">{{ item.Prenom }} {{ item.Nom }}</div>
+                      <span class="badge bg-success-soft text-success rounded-pill px-2 py-1" style="font-size: 0.7rem;">Actif</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-dark fw-medium">{{ item.Nom }}</td>
+                <td class="text-dark fw-medium">{{ item.Prenom }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: MEMBRES -->
+    <div *ngIf="activeTab === 'membres'" class="tab-pane-fade">
+      <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+        <!-- Section Header & Search -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+          <div>
+            <h3 class="fw-bold mb-1 text-dark">Gestion des Membres</h3>
+            <p class="text-muted small mb-0">Consulter, rechercher et vérifier les membres inscrits</p>
+          </div>
+          <!-- Search Bar -->
+          <div class="input-group" style="max-width: 320px;">
+            <span class="input-group-text bg-light border-0 text-muted"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control bg-light border-0" placeholder="Rechercher..." [(ngModel)]="searchQuery">
+          </div>
+        </div>
+
+        <!-- List View -->
+        <div class="text-center py-5" *ngIf="!filteredMembres || filteredMembres.length === 0">
+          <div class="mb-3">
+            <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+          </div>
+          <p class="text-muted fs-5">Aucun membre ne correspond à votre recherche.</p>
+        </div>
+
+        <div class="table-responsive" *ngIf="filteredMembres && filteredMembres.length > 0">
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr class="text-muted" style="font-size: 0.85rem; border-bottom: 2px solid #f8fafc; font-weight: 700; text-transform: uppercase;">
+                <th scope="col" class="py-3 px-4">Membre</th>
+                <th scope="col" class="py-3">Email</th>
+                <th scope="col" class="py-3">Téléphone</th>
+                <th scope="col" class="py-3">Adresse</th>
+                <th scope="col" class="py-3">Village d'origine</th>
+                <th scope="col" class="py-3 text-end px-4">Statut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filteredMembres" style="border-bottom: 1px solid #f1f5f9;">
+                <td class="py-3 px-4">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="avatar-sm d-flex align-items-center justify-content-center rounded-circle text-white fw-bold" 
+                         [style.background]="getMemberAvatarColor(item)" style="width: 42px; height: 42px;">
+                      {{ getMemberInitials(item) }}
+                    </div>
+                    <div>
+                      <div class="fw-bold text-dark">{{ item.firstName }} {{ item.lastName }}</div>
+                      <span class="text-muted small">{{ item.displayName || 'Sans pseudo' }}</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-dark fw-medium">{{ item.email }}</td>
+                <td class="text-dark fw-medium">{{ item.phone || '-' }}</td>
+                <td class="text-muted" style="font-size: 0.9rem;">{{ item.address || '-' }}</td>
+                <td class="text-dark font-semibold">{{ item.villageOrigine || '-' }}</td>
+                <td class="text-end px-4">
+                  <span class="badge rounded-pill px-2 py-1" 
+                        [class.bg-success-soft]="item.emailVerified" 
+                        [class.text-success]="item.emailVerified"
+                        [class.bg-warning-soft]="!item.emailVerified" 
+                        [class.text-warning]="!item.emailVerified">
+                    {{ item.emailVerified ? 'Vérifié' : 'Non Vérifié' }}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: CONTACT MESSAGES -->
+    <div *ngIf="activeTab === 'contacts'" class="tab-pane-fade">
+      <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+        <!-- Section Header & Search -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+          <div>
+            <h3 class="fw-bold mb-1 text-dark">Messages de Contact</h3>
+            <p class="text-muted small mb-0">Consulter et répondre aux requêtes envoyées via le site</p>
+          </div>
+          <!-- Search Bar -->
+          <div class="input-group" style="max-width: 320px;">
+            <span class="input-group-text bg-light border-0 text-muted"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control bg-light border-0" placeholder="Rechercher..." [(ngModel)]="searchQuery">
+          </div>
+        </div>
+
+        <!-- List View -->
+        <div class="text-center py-5" *ngIf="!filteredContacts || filteredContacts.length === 0">
+          <div class="mb-3">
+            <i class="bi bi-chat-left-dots text-muted" style="font-size: 3rem;"></i>
+          </div>
+          <p class="text-muted fs-5">Aucun message de contact trouvé.</p>
+        </div>
+
+        <!-- Beautiful Messages List Grid -->
+        <div class="row g-4" *ngIf="filteredContacts && filteredContacts.length > 0">
+          <div class="col-md-6" *ngFor="let item of filteredContacts">
+            <div class="card h-100 border-0 rounded-3 p-4 shadow-sm" style="background: #f8fafc; border: 1px solid #edf2f7 !important;">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="avatar-sm d-flex align-items-center justify-content-center rounded-circle text-white fw-bold" 
+                       [style.background]="getContactAvatarColor(item)" style="width: 44px; height: 44px;">
+                    {{ getContactInitials(item) }}
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">{{ item.name }}</h6>
+                    <small class="text-muted">{{ item.email }}</small>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span class="badge bg-primary-soft text-primary rounded-pill px-2 py-1 mb-2" style="font-size: 0.75rem;">Sujet: {{ item.sujet || 'Général' }}</span>
+              </div>
+              <p class="text-dark small mb-0 lh-base" style="white-space: pre-line;">
+                "{{ item.message }}"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: NEWSLETTER SUBSCRIBERS -->
+    <div *ngIf="activeTab === 'emails'" class="tab-pane-fade">
+      <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+        <!-- Section Header & Search -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+          <div>
+            <h3 class="fw-bold mb-1 text-dark">Abonnés Newsletter</h3>
+            <p class="text-muted small mb-0">Liste d'adresses email enregistrées pour la newsletter</p>
+          </div>
+          <!-- Search Bar -->
+          <div class="input-group" style="max-width: 320px;">
+            <span class="input-group-text bg-light border-0 text-muted"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control bg-light border-0" placeholder="Rechercher..." [(ngModel)]="searchQuery">
+          </div>
+        </div>
+
+        <!-- List View -->
+        <div class="text-center py-5" *ngIf="!filteredEmails || filteredEmails.length === 0">
+          <div class="mb-3">
+            <i class="bi bi-mailbox text-muted" style="font-size: 3rem;"></i>
+          </div>
+          <p class="text-muted fs-5">Aucune adresse email ne correspond à votre recherche.</p>
+        </div>
+
+        <div class="table-responsive" *ngIf="filteredEmails && filteredEmails.length > 0">
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr class="text-muted" style="font-size: 0.85rem; border-bottom: 2px solid #f8fafc; font-weight: 700; text-transform: uppercase;">
+                <th scope="col" class="py-3 px-4">Adresse Email</th>
+                <th scope="col" class="py-3">Statut de diffusion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filteredEmails" style="border-bottom: 1px solid #f1f5f9;">
+                <td class="py-3 px-4 fw-semibold text-dark">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-envelope-at text-muted"></i>
+                    {{ item.mail }}
+                  </div>
+                </td>
+                <td>
+                  <span class="badge bg-success-soft text-success rounded-pill px-2 py-1" style="font-size: 0.75rem;">Abonné</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Fallback / Helper template for empty arrays in overview -->
+<ng-template #emptyState>
+  <div class="text-center py-4 text-muted">
+    <i class="bi bi-inbox fs-3 mb-2 d-block"></i>
+    <small>Aucune donnée disponible pour le moment.</small>
+  </div>
+</ng-template>

@@ -57,14 +57,9 @@ export class FooterComponent {
         this.contactService.addNewEmail(this.email).then(() => {
           this.email = new Email();
           this.showSuccessPopup = true;
-          setTimeout(() => {
-            this.showSuccessPopup = false;
-          }, 4000);
-        });
+          setTimeout(() => { this.showSuccessPopup = false;}, 4000); });
       } else {
-        setTimeout(() => {
-          this.existMail = false;
-        }, 4000);
+        setTimeout(() => {this.existMail = false; }, 4000);
       }
     }, 600);
   }
