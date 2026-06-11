@@ -22,6 +22,7 @@ import { IfqirnComponent } from './components/ifqirn/ifqirn.component';
 import { SoireeAnnuelComponent } from './components/soiree-annuel/soiree-annuel.component';
 import { WadaTelbaComponent } from './components/wada-telba/wada-telba.component';
 import { ActualiteComponent } from './components/actualite/actualite.component';
+import { DegradationRouteComponent } from './components/degradation-route/degradation-route.component';
 import { AdminComponent } from './components/admin/admin.component';
 TeamComponent
 export const routes: Routes = [
@@ -44,6 +45,7 @@ export const routes: Routes = [
 { path: 'WadaTelba', component: WadaTelbaComponent },
 { path: 'Soiree', component: SoireeAnnuelComponent },
 { path: 'actualite', component: ActualiteComponent },
+{ path: 'degradation-route', component: DegradationRouteComponent },
 { path: 'Admin', component: AdminComponent },
 { path: '', redirectTo: '/Event', pathMatch: 'full'}
 ];

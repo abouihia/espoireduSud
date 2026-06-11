@@ -23,12 +23,14 @@ import {TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { provideTranslateService } from '@ngx-translate/core';
+import { DegradationRouteComponent } from './components/degradation-route/degradation-route.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DegradationRouteComponent
   ],
   imports: [
     BrowserModule,
