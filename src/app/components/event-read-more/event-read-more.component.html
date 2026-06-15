@@ -1,18 +1,98 @@
-
 <section id="wadda" class="contact">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
             <h2>l'wada n'telba</h2>
         </div>
-
+        <!-- Texte d'introduction et détails de l'événement -->
         <div class="intro-text text-center mb-5">
             <p class="lead">Salut à toutes et à tous,</p>
-            <p>Le 92 (Nantere), c'est la que tout a commencé en 1932.</p>
-            <p>  Vous êtes cordialement conviés à {{getEdition()}} ème edition de l'wada le  01 / 05 /{{getYear()}}  <strong>à partir du 11H00 </strong></p>
-            <p class="text-muted"> L'évènement aura lieu à l'adresse suivante :<strong>   400, rue du marché Rollay
-                <br>94500 Champigny-sur-Marne</strong></p>
+            <p>Le 92 (Nanterre), c'est là que tout a commencé en 1932.</p>
+            <p>Vous êtes cordialement conviés à la <strong>{{ getEdition() }}ème</strong> édition de l'wada le <strong>01/05/{{ getYear() }}</strong> à partir de <strong>11H00</strong></p>
+            <p class="text-muted text-address">L'événement aura lieu à l'adresse suivante :<br>
+                <strong>400, rue du marché Rollay<br>94500 Champigny-sur-Marne</strong>
+            </p>
         </div>
+
+        <!-- Widget principal de compte à rebours de l'événement -->
+        <div class="countdown-widget mb-4">
+            <div class="countdown-header">
+                <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <h3>La prochaine Wada Inchallah aura lieu dans:</h3>
+            </div>
+            <div class="countdown-grid">
+                <div class="countdown-card">
+                    <span class="countdown-number">{{ days }}</span>
+                    <span class="countdown-label">Jours</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-number">{{ hours }}</span>
+                    <span class="countdown-label">Heures</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-number">{{ minutes }}</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-number">{{ seconds }}</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOUVEAU: Widget de calcul de date interactif -->
+        <div class="calculator-widget mb-5">
+            <div class="calculator-header">
+                <svg class="icon-calculator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="9"></line>
+                    <line x1="9" y1="13" x2="15" y2="13"></line>
+                    <line x1="9" y1="17" x2="15" y2="17"></line>
+                    <line x1="12" y1="9" x2="12" y2="17"></line>
+                </svg>
+                <h3>Calculateur de date interactif</h3>
+            </div>
+            <div class="calculator-body">
+                <p class="calculator-desc">Calculez précisément la durée restante ou écoulée par rapport à n'importe quelle date cible :</p>
+                <div class="calculator-input-container">
+                    <input type="datetime-local" 
+                           [(ngModel)]="customDate" 
+                           (ngModelChange)="onCustomDateChange()" 
+                           class="calculator-input" />
+                </div>
+
+                <!-- Résultats en temps réel -->
+                <div *ngIf="customResult" class="calculator-result-box" data-aos="zoom-in">
+                    <div class="result-badge" [ngClass]="customResult.isPast ? 'badge-past' : 'badge-future'">
+                        <span *ngIf="customResult.isPast">⚠️ Événement passé depuis :</span>
+                        <span *ngIf="!customResult.isPast">⏳ Temps restant estimé :</span>
+                    </div>
+                    <div class="countdown-grid">
+                        <div class="countdown-card result-card">
+                            <span class="countdown-number">{{ customResult.days }}</span>
+                            <span class="countdown-label">Jours</span>
+                        </div>
+                        <div class="countdown-card result-card">
+                            <span class="countdown-number">{{ customResult.hours }}</span>
+                            <span class="countdown-label">Heures</span>
+                        </div>
+                        <div class="countdown-card result-card">
+                            <span class="countdown-number">{{ customResult.minutes }}</span>
+                            <span class="countdown-label">Min</span>
+                        </div>
+                        <div class="countdown-card result-card">
+                            <span class="countdown-number">{{ customResult.seconds }}</span>
+                            <span class="countdown-label">Sec</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     </div>
 </section>
