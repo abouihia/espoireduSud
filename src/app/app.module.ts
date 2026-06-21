@@ -24,13 +24,15 @@ import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { provideTranslateService } from '@ngx-translate/core';
 import { DegradationRouteComponent } from './components/degradation-route/degradation-route.component';
+import { MadrassaComponent } from './components/madrassa/madrassa.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DegradationRouteComponent
+    DegradationRouteComponent,
+    MadrassaComponent
   ],
   imports: [
     BrowserModule,

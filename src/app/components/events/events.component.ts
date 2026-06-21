@@ -16,7 +16,8 @@ export class EventsComponent {
      imageUrl1 = 'assets/img/blog/Waada.jpg';
      imageUrl2= 'assets/img/blog/bg_1.jpg';
      imageUrl3= 'assets/img/mre/Journee_MRE1.jpg';
-     imageUrl4 = 'assets/img/voitureCase.jpeg';
+     imageUrl4 = 'assets/img/voitureCase.jpeg'
+     imageUrl5 = 'assets/img/madrassa/Madrassa3.jpeg';
 
 
 

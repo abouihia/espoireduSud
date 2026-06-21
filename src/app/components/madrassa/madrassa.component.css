@@ -1,0 +1,67 @@
+/* Gallery Item Styles */
+.gallery-item-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.gallery-item-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.gallery-item-card .img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item-card .img-container img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item-card:hover .img-container img {
+  transform: scale(1.08);
+}
+
+/* Hover Overlay for Gallery Trigger */
+.overlay-hover {
+  background: rgba(34, 197, 94, 0.45); /* Green overlay matching primary */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.gallery-item-card:hover .overlay-hover {
+  opacity: 1;
+}
+
+.overlay-hover .btn {
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-item-card:hover .overlay-hover .btn {
+  transform: scale(1);
+}
+
+/* Sidebar Sticky Offset Adjustment */
+.sidebar {
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  background-color: #ffffff;
+}
+
+/* Text details styling */
+.content-text p {
+  margin-bottom: 1.5rem;
+}
+
+.content-text p:last-child {
+  margin-bottom: 0;
+}
+
+.content-text ul li {
+  margin-bottom: 0.5rem;
+}
+
+.content-text ul li:last-child {
+  margin-bottom: 0;
+}

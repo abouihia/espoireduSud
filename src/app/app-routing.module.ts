@@ -24,6 +24,7 @@ import { WadaTelbaComponent } from './components/wada-telba/wada-telba.component
 import { ActualiteComponent } from './components/actualite/actualite.component';
 import { DegradationRouteComponent } from './components/degradation-route/degradation-route.component';
 import { AdminComponent } from './components/admin/admin.component';
+import {MadrassaComponent} from "./components/madrassa/madrassa.component";
 TeamComponent
 export const routes: Routes = [
 { path: 'Histoire',component:HistoireComponent},
@@ -46,6 +47,7 @@ export const routes: Routes = [
 { path: 'Soiree', component: SoireeAnnuelComponent },
 { path: 'actualite', component: ActualiteComponent },
 { path: 'degradation-route', component: DegradationRouteComponent },
+  { path: 'madrassa', component: MadrassaComponent},
 { path: 'Admin', component: AdminComponent },
 { path: '', redirectTo: '/Event', pathMatch: 'full'}
 ];
