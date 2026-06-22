@@ -12,7 +12,7 @@
     <div class="row g-5">
       <div class="col-lg-8">
         <!-- Article Degradation Route 115 -->
-        <article class="card-premium border-0 mb-5 p-0 overflow-hidden" id="6">
+        <article id="6" *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
           <div class="row g-0">
             <div class="col-md-5">
               <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl5 + ') center/cover'"></div>
@@ -40,7 +40,7 @@
             </div>
           </div>
         </article>
-        <article class="card-premium border-0 mb-5 p-0 overflow-hidden" id="5">
+        <article id="5"  *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
           <div class="row g-0">
             <div class="col-md-5">
               <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl4 + ') center/cover'"></div>
@@ -63,8 +63,7 @@
             </div>
           </div>
         </article>
-
-        <article class="card-premium border-0 mb-5 p-0 overflow-hidden" id="1">
+        <article id="1" *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
           <div class="row g-0">
             <div class="col-md-5">
               <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl0 + ') center/cover'"></div>
@@ -88,10 +87,7 @@
             </div>
           </div>
         </article>
-
-
-        <!-- Event 1 -->
-        <article class="card-premium border-0 mb-5 p-0 overflow-hidden" id="2">
+        <article id="2" *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
           <div class="row g-0">
             <div class="col-md-5">
               <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl1 + ') center/cover'"></div>
@@ -117,8 +113,7 @@
           </div>
         </article>
 
-        <!-- Event 2 -->
-        <article class="card-premium border-0 mb-5 p-0 overflow-hidden" id="3">
+        <article id="3" *ngIf="currentPage === 2" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
           <div class="row g-0">
             <div class="col-md-5">
               <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl2 + ') center/cover'"></div>
@@ -149,9 +144,7 @@
             </div>
           </div>
         </article>
-
-        <!-- Event 3 -->
-        <article class="card-premium border-0 mb-5 p-4 p-lg-5" id="4">
+        <article id="4"  *ngIf="currentPage === 2"class="card-premium border-0 mb-5 p-4 p-lg-5" >
           <div class="badge bg-info-soft text-info rounded-pill px-3 py-2 mb-3"
             style="background: rgba(14, 165, 233, 0.1);">MRE & Développement</div>
           <h3 class="fw-bold mb-4">Journée nationale des MRE Irsmouken (édition 2024)</h3>
@@ -178,9 +171,37 @@
         <!-- Pagination -->
         <nav aria-label="Page navigation" class="mt-5">
           <ul class="pagination pagination-lg justify-content-center border-0">
-            <li class="page-item active" aria-current="page"><span class="page-link rounded-circle mx-1">1</span></li>
-            <li class="page-item"><a class="page-link rounded-circle mx-1 border-0" href="#">2</a></li>
-            <li class="page-item"><a class="page-link rounded-circle mx-1 border-0" href="#">3</a></li>
+
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <button class="page-link rounded-circle mx-1 border-0" (click)="previousPage()">
+                Précedant
+              </button>
+            </li>
+
+            <li class="page-item active" aria-current="page" [class.disabled]="currentPage === 1">
+              <button class="page-link rounded-circle mx-1 border-0" (click)="goToPage(1)">
+                1
+              </button>
+            </li>
+
+            <li class="page-item" [class.disabled]="currentPage === 2">
+              <button class="page-link rounded-circle mx-1 border-0" (click)="goToPage(2)">
+                2
+              </button>
+            </li>
+
+            <li class="page-item" [class.disabled]="currentPage === 2">
+              <button class="page-link rounded-circle mx-1 border-0" (click)="goToPage(3)">
+                3
+              </button>
+            </li>
+
+            <li class="page-item" [class.disabled]="currentPage === 2">
+              <button class="page-link rounded-circle mx-1 border-0" (click)="nextPage()">
+                Prochaine
+              </button>
+            </li>
+
           </ul>
         </nav>
       </div>

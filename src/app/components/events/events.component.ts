@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CountDownComponent } from '../count-down/count-down.component';
-
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { RouterModule} from '@angular/router';
 @Component({
     selector: 'app-events',
-    imports: [CountDownComponent, RouterModule],
+    imports: [CountDownComponent, RouterModule,CommonModule],
     templateUrl: './events.component.html',
     styleUrl: '../../../assets/css/style.css'
 })
@@ -19,6 +19,25 @@ export class EventsComponent {
      imageUrl4 = 'assets/img/voitureCase.jpeg'
      imageUrl5 = 'assets/img/madrassa/Madrassa3.jpeg';
 
+
+
+    currentPage = 1;
+
+    nextPage(): void {
+        if (this.currentPage < 2) { // total number of pages
+            this.currentPage++;
+        }
+    }
+
+    previousPage(): void {
+        if (this.currentPage > 1) {
+            this.currentPage--;
+        }
+    }
+
+    goToPage(page: number): void {
+        this.currentPage = page;
+    }
 
 
      getDataWada(){
