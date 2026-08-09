@@ -1,21 +1,174 @@
-<section id="hero" class="d-flex align-items-center">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-xl-9">
-        <div class="hero-text-box" data-aos="fade-right" data-aos-delay="100">
-          <span class="badge bg-success-soft text-success mb-3 px-3 py-2 rounded-pill fw-bold"
-            style="background: rgba(34, 197, 94, 0.1);">Développement Durable & Solidaire</span>
-          <h1>Promouvoir le développement de la région <span class="text-secondary">Resmouka</span></h1>
-          <h2 class="opacity-75">Notre mission est de proposer et superviser des projets structurants pour le
-            développement durable de la région de Resmouka.</h2>
-          <div class="d-flex flex-wrap gap-3 mt-5">
-            <a routerLink="/About" class="btn-premium btn-premium-primary">
-              <span>Découvrir notre vision</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-            <a routerLink="/Event" class="btn-premium glass text-white">
-              <span>Voir l'actualité</span>
-            </a>
+<!-- Section Hero Premium -->
+<section id="hero" class="d-flex align-items-center position-relative py-5 overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.85) 100%), url('assets/img/hero-bg.jpg') center/cover no-repeat; min-height: 88vh;">
+  <div class="container py-5 position-relative z-1">
+    <div class="row align-items-center g-5">
+      
+      <!-- Texte & Titre principal -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 text-success mb-4">
+          <span class="spinner-grow spinner-grow-sm text-success" role="status"></span>
+          <span class="small fw-semibold">Association Espoir du Sud • Irsmouken / Arbaa Rasmouka</span>
+        </div>
+
+        <h1 class="display-3 fw-bold text-white mb-4" style="line-height: 1.15; font-family: 'Outfit', sans-serif;">
+          Ensemble pour le développement durable de <span class="text-gradient-success">Resmouka</span>
+        </h1>
+
+        <p class="lead text-white-50 mb-5 fs-5" style="max-width: 620px; line-height: 1.7;">
+          Proposer, financer et superviser des projets structurants pour l'éducation, les infrastructures, la solidarité et le rayonnement culturel de notre commune.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          <a routerLink="/About" class="btn btn-success btn-lg rounded-pill px-4 py-3 shadow-lg fw-bold d-inline-flex align-items-center gap-2 transition-all">
+            <span>Découvrir notre vision</span>
+            <i class="bi bi-arrow-right fs-5"></i>
+          </a>
+          <a routerLink="/Event" class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-medium d-inline-flex align-items-center gap-2">
+            <i class="bi bi-newspaper"></i>
+            <span>Voir l'actualité</span>
+          </a>
+        </div>
+
+        <!-- Badges d'impact rapide -->
+        <div class="row g-3 mt-5 pt-3 border-top border-light border-opacity-10 text-white">
+          <div class="col-6 col-sm-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="p-2 bg-success bg-opacity-25 text-success rounded-circle">
+                <i class="bi bi-bus-front fs-4"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-0 text-white">50+</h4>
+                <span class="small text-white-50">Écoliers / Jour</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="p-2 bg-primary bg-opacity-25 text-primary rounded-circle">
+                <i class="bi bi-building-check fs-4"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-0 text-white">12+</h4>
+                <span class="small text-white-50">Infrastructures</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="p-2 bg-warning bg-opacity-25 text-warning rounded-circle">
+                <i class="bi bi-clock-history fs-4"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-0 text-white">1930</h4>
+                <span class="small text-white-50">Héritage MRE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Visual Card / Quick Highlight -->
+      <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+        <div class="card border-0 rounded-4 shadow-lg overflow-hidden bg-white text-dark p-2" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+          <div class="position-relative rounded-3 overflow-hidden" style="height: 240px;">
+            <img src="assets/img/madrassa/madrassa_avancement_5.jpg" alt="Madrassa Atika Irsmouken" class="w-100 h-100" style="object-fit: cover;">
+            <span class="position-absolute top-0 start-0 m-3 badge bg-success text-white px-3 py-2 rounded-pill shadow-sm">
+              <i class="bi bi-star-fill me-1"></i> Projet Phare 2026
+            </span>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-1">Éducation</span>
+              <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Arbaa Rasmouka</span>
+            </div>
+            <h4 class="fw-bold text-dark mb-2">Réhabilitation Madrassa Atika</h4>
+            <p class="text-muted small mb-4">
+              Supervision des travaux de l'école scientifique « Doudrar » : nouvelles salles de classe, amphithéâtre et aménagements sanitaires.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <a routerLink="/madrassa" class="btn btn-outline-success btn-sm rounded-pill px-3 fw-semibold">
+                Voir l'avancement <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <span class="text-success small fw-bold"><i class="bi bi-check-circle-fill me-1"></i> Travaux en cours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section Spotlight : Projets Phares -->
+<section id="spotlight-projects" class="py-5 bg-white">
+  <div class="container py-4">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge bg-success-soft text-success rounded-pill px-3 py-2 mb-2">
+        <i class="bi bi-rocket-takeoff me-1"></i> Grands Chantiers 2026
+      </span>
+      <h2 class="display-5 fw-bold text-dark">Les Projets Majeurs de la Commune</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Découvrez les initiatives structurantes portées par l'association en concertation avec les autorités et la population locale.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Projet 1 : Madrassa Atika -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white border transition-hover">
+          <div class="row g-0 h-100">
+            <div class="col-md-5 position-relative overflow-hidden" style="min-height: 220px;">
+              <img src="assets/img/madrassa/madrassa_avancement_1.jpg" alt="Projet Madrassa" class="w-100 h-100" style="object-fit: cover;">
+              <span class="position-absolute top-0 start-0 m-3 badge bg-success rounded-pill px-3 py-2">5 Clichés d'Avancement</span>
+            </div>
+            <div class="col-md-7 d-flex flex-column p-4">
+              <div class="mb-2">
+                <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-1 me-2">Éducation</span>
+                <span class="text-muted small"><i class="bi bi-calendar-event me-1"></i> Juin - Août 2026</span>
+              </div>
+              <h4 class="fw-bold mb-2 text-dark">Extension Madrassa Atika « Doudrar »</h4>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Concertation, présentation des plans 3D et suivi des travaux du complexe scientifique et de son amphithéâtre unique.
+              </p>
+              <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                <a routerLink="/madrassa" class="btn btn-sm btn-success rounded-pill px-3">
+                  Galerie & Détails <i class="bi bi-arrow-right me-1"></i>
+                </a>
+                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1">En Réalisation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 2 : Route Régionale 115 -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white border transition-hover">
+          <div class="row g-0 h-100">
+            <div class="col-md-5 position-relative overflow-hidden" style="min-height: 220px;">
+              <img src="assets/img/voitureCase2.jpeg" alt="Route Régionale 115" class="w-100 h-100" style="object-fit: cover;">
+              <span class="position-absolute top-0 start-0 m-3 badge bg-primary rounded-pill px-3 py-2">Appel d'Offres N° 22/2026</span>
+            </div>
+            <div class="col-md-7 d-flex flex-column p-4">
+              <div class="mb-2">
+                <span class="badge bg-danger-soft text-danger rounded-pill px-3 py-1 me-2">Infrastructures</span>
+                <span class="text-muted small"><i class="bi bi-calendar-event me-1"></i> 18 Août 2026</span>
+              </div>
+              <h4 class="fw-bold mb-2 text-dark">Réhabilitation Route Régionale 115</h4>
+              <p class="text-muted small mb-4 flex-grow-1">
+                Lancement tant attendu des travaux d'élargissement et de sécurisation sur un tronçon stratégique de 26,97 km.
+              </p>
+              <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                <a routerLink="/Event" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                  Lire le communiqué <i class="bi bi-arrow-right me-1"></i>
+                </a>
+                <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-1">Appel d'offres</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -23,93 +176,111 @@
   </div>
 </section>
 
-<section id="impact" class="py-5 bg-white">
+<!-- Section Piliers d'Action -->
+<section id="piliers-action" class="py-5 bg-light">
   <div class="container py-5">
     <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="display-5 fw-bold">Transformer vos dons en résultats concrets</h2>
-      <p class="text-muted mx-auto" style="max-width: 700px;">Découvrez comment votre soutien change quotidiennement la
-        vie des habitants de la région de Resmouka.</p>
+      <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-2 mb-2">
+        <i class="bi bi-heart-pulse me-1"></i> Nos Domaines d'Intervention
+      </span>
+      <h2 class="display-5 fw-bold text-dark">4 Piliers pour le Développement d'Irsmouken</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Chaque projet mené par l'association s'inscrit dans une vision globale de développement durable, solidaire et humain.
+      </p>
     </div>
-    <div class="row g-4">
-      <!-- Carte Impact 1 -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-premium h-100 text-center border-0 shadow-sm">
-          <div class="icon-wrapper mb-4 text-primary bg-primary-soft p-4 rounded-circle d-inline-block">
-            <i class="bi bi-bus-front fs-1"></i>
-          </div>
-          <div class="display-5 fw-bold text-primary mb-2">50+</div>
-          <h4 class="fw-bold mb-3">Éducation & Transport</h4>
-          <p class="text-muted">Écoliers transportés chaque jour depuis les villages isolés vers leurs établissements.
-          </p>
-          <a routerLink="/Membre" class="btn btn-link text-primary fw-bold text-decoration-none mt-3">Soutenir ce
-            transport <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-      <!-- Carte Impact 2 -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-premium h-100 text-center border-0 shadow-sm">
-          <div class="icon-wrapper mb-4 text-success bg-success-soft p-4 rounded-circle d-inline-block">
-            <i class="bi bi-building-gear fs-1"></i>
-          </div>
-          <div class="display-5 fw-bold text-success mb-2">12+</div>
-          <h4 class="fw-bold mb-3">Infrastructures Vitales</h4>
-          <p class="text-muted">Projets de rénovation d'écoles et de sécurisation de points d'eau potable réalisés avec
-            succès.</p>
-        </div>
-      </div>
-      <!-- Carte Impact 3 -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-premium h-100 text-center border-0 shadow-sm">
-          <div class="icon-wrapper mb-4 text-warning bg-warning-soft p-4 rounded-circle d-inline-block">
-            <i class="bi bi-tree fs-1"></i>
-          </div>
-          <div class="display-5 fw-bold text-warning mb-2">1000+</div>
-          <h4 class="fw-bold mb-3">Environnement & Oasis</h4>
-          <p class="text-muted">Arbres et palmiers plantés pour lutter contre la désertification et protéger notre
-            écosystème.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="services-preview" class="py-5 bg-light">
-  <div class="container py-5">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="display-5 fw-bold">Domaines d'Action</h2>
-      <p class="text-muted mx-auto" style="max-width: 600px;">Nous intervenons sur plusieurs axes stratégiques pour
-        garantir un impact positif et durable.</p>
-    </div>
     <div class="row g-4">
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-premium h-100">
-          <div class="mb-4 text-primary bg-primary-soft p-3 rounded-4 d-inline-block"
-            style="background: rgba(34, 197, 94, 0.1);">
-            <i class="bi bi-heart-pulse fs-2"></i>
+      <!-- Pilier 1 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="card border-0 rounded-4 shadow-sm h-100 bg-white p-4 transition-hover">
+          <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-4 d-inline-block mb-4" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-bus-front fs-2"></i>
           </div>
-          <h4 class="fw-bold mb-3">Santé & Social</h4>
-          <p class="text-muted">Soutien aux familles nécessiteuses et amélioration de l'accès aux soins de proximité.
+          <h4 class="fw-bold mb-3 text-dark fs-5">Éducation & Transport</h4>
+          <p class="text-muted small mb-4" style="line-height: 1.6;">
+            Financement et gestion des bus scolaires pour acheminer chaque jour les enfants des douars isolés vers les écoles.
           </p>
+          <a routerLink="/Membre" class="text-primary small fw-bold text-decoration-none mt-auto">
+            Soutenir ce transport <i class="bi bi-arrow-right ms-1"></i>
+          </a>
         </div>
       </div>
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-premium h-100">
-          <div class="mb-4 text-primary bg-primary-soft p-3 rounded-4 d-inline-block"
-            style="background: rgba(34, 197, 94, 0.1);">
-            <i class="bi bi-book fs-2"></i>
+
+      <!-- Pilier 2 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="card border-0 rounded-4 shadow-sm h-100 bg-white p-4 transition-hover">
+          <div class="p-3 bg-success bg-opacity-10 text-success rounded-4 d-inline-block mb-4" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-building-gear fs-2"></i>
           </div>
-          <h4 class="fw-bold mb-3">Éducation</h4>
-          <p class="text-muted">Promotion de la scolarisation et lutte contre l'abandon scolaire dans la région.</p>
+          <h4 class="fw-bold mb-3 text-dark fs-5">Infrastructures & Eau</h4>
+          <p class="text-muted small mb-4" style="line-height: 1.6;">
+            Réhabilitation des routes, soutien aux écoles traditionnelles et sécurisation de l'accès à l'eau potable.
+          </p>
+          <a routerLink="/madrassa" class="text-success small fw-bold text-decoration-none mt-auto">
+            Projet Madrassa <i class="bi bi-arrow-right ms-1"></i>
+          </a>
         </div>
       </div>
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-premium h-100">
-          <div class="mb-4 text-primary bg-primary-soft p-3 rounded-4 d-inline-block"
-            style="background: rgba(34, 197, 94, 0.1);">
+
+      <!-- Pilier 3 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="card border-0 rounded-4 shadow-sm h-100 bg-white p-4 transition-hover">
+          <div class="p-3 bg-warning bg-opacity-10 text-warning rounded-4 d-inline-block mb-4" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
             <i class="bi bi-tree fs-2"></i>
           </div>
-          <h4 class="fw-bold mb-3">Environnement</h4>
-          <p class="text-muted">Projets liés à l'écologie et au développement durable pour préserver notre oasis.</p>
+          <h4 class="fw-bold mb-3 text-dark fs-5">Environnement & Oasis</h4>
+          <p class="text-muted small mb-4" style="line-height: 1.6;">
+            Plantation d'arbres et de palmiers pour préserver la biodiversité et lutter contre la désertification de notre région.
+          </p>
+          <a routerLink="/About" class="text-warning small fw-bold text-decoration-none mt-auto">
+            En savoir plus <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Pilier 4 -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="card border-0 rounded-4 shadow-sm h-100 bg-white p-4 transition-hover">
+          <div class="p-3 bg-info bg-opacity-10 text-info rounded-4 d-inline-block mb-4" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-people fs-2"></i>
+          </div>
+          <h4 class="fw-bold mb-3 text-dark fs-5">MRE & Culture</h4>
+          <p class="text-muted small mb-4" style="line-height: 1.6;">
+            Organisation de rencontres culturelles annuelles (Soirées, Waadas) et valorisation de la mémoire collective des émigrés.
+          </p>
+          <a routerLink="/Soiree" class="text-info small fw-bold text-decoration-none mt-auto">
+            Événements MRE <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section CTA Engagement Solidaire -->
+<section id="cta-membership" class="py-5 bg-white">
+  <div class="container py-4" data-aos="fade-up">
+    <div class="p-4 p-md-5 rounded-4 shadow-lg text-white position-relative overflow-hidden"
+         style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%); border: 1px solid rgba(34, 197, 94, 0.2);">
+      <div class="row align-items-center g-4 position-relative z-1">
+        <div class="col-lg-8 text-center text-lg-start">
+          <span class="badge bg-success text-white rounded-pill px-3 py-2 mb-3">
+            <i class="bi bi-heart-fill me-1 text-white"></i> Agissez avec nous
+          </span>
+          <h2 class="display-6 fw-bold mb-3 text-white">Devenez acteur du changement à Resmouka</h2>
+          <p class="lead opacity-75 mb-0" style="max-width: 650px; font-size: 1.1rem;">
+            Que vous soyez résidant dans la région ou membre de la communauté MRE à l'étranger, votre engagement renforce nos capacités d'action sur le terrain.
+          </p>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+          <div class="d-flex flex-column flex-sm-row justify-content-lg-end gap-3">
+            <a routerLink="/Membre" class="btn btn-success btn-lg rounded-pill px-4 py-3 fw-bold shadow-sm">
+              <i class="bi bi-person-plus-fill me-2"></i> Devenir membre
+            </a>
+            <a routerLink="/Contact" class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-medium">
+              Nous contacter
+            </a>
+          </div>
         </div>
       </div>
     </div>
