@@ -1,268 +1,422 @@
 <section id="page-header" class="py-5 bg-dark text-white text-center"
-  style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('assets/img/hero-bg.jpg') center/cover;">
+  style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('assets/img/hero-bg.jpg') center/cover;">
   <div class="container py-4" data-aos="fade-down">
     <h1 class="display-4 fw-bold mb-3">Actualités & Événements</h1>
-    <p class="lead opacity-75 mx-auto" style="max-width: 700px;">Restez informé des derniers projets, rencontres et
-      waadas au sein de la communauté Irsmouken.</p>
+    <p class="lead opacity-75 mx-auto" style="max-width: 700px;">Restez informé des derniers projets, rencontres, waadas et actualités au sein de la communauté Irsmouken.</p>
   </div>
 </section>
 
-<section id="blog" class="blog py-5 bg-light">
+<section id="events-section" class="py-5 bg-light">
   <div class="container" data-aos="fade-up">
-    <div class="row g-5">
-      <div class="col-lg-8">
-        <!-- Article Degradation Route 115 -->
-        <article id="6" *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
-          <div class="row g-0">
-            <div class="col-md-5">
-              <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl5 + ') center/cover'"></div>
-            </div>
-            <div class="col-md-7">
-              <div class="p-4 p-lg-5">
-                <div class="d-flex align-items-center gap-2 mb-3">
-                  <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-2"
-                        style="background: rgba(34, 197, 94, 0.1);">Madrassa Atika </span>
-                  <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i> 14 Juin 2026</span>
+
+    <!-- Événement Majeur À la Une (Featured Event) -->
+    <div class="row mb-5" *ngIf="selectedCategory === 'all' || selectedCategory === 'madrassa'">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 1px solid rgba(34, 197, 94, 0.2) !important;">
+          <div class="row g-0 align-items-center">
+            <div class="col-lg-5 position-relative overflow-hidden bg-dark d-flex align-items-center justify-content-center" style="min-height: 320px;">
+              <a [href]="featuredEvent.image" data-bs-toggle="modal" [attr.data-bs-target]="featuredEvent.modalTarget" class="d-block w-100 h-100 position-relative text-center cursor-pointer">
+                <img [src]="featuredEvent.image" [alt]="featuredEvent.title" class="w-100 h-100" style="min-height: 320px; max-height: 400px; object-fit: cover; object-position: top; transition: transform 0.3s ease;">
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25 d-flex align-items-center justify-content-center opacity-0 hover-opacity-100 transition-opacity">
+                  <span class="btn btn-light rounded-circle p-3 shadow">
+                    <i class="bi bi-zoom-in fs-4 text-success"></i>
+                  </span>
                 </div>
-                <h3 class="fw-bold mb-3">Présentation du projet de réhabilitation de  Madrassa Atika</h3>
-                <p class="text-muted mb-4">Découverte des différentes composantes du projet ainsi que son budget prévisionnel</p>
-                <p class="text-muted mb-4">
-                  Un documentaire  présenté les nouvelles infrastructures éducatives, administratives et sanitaires,
-                  dont les travaux sont presque terminés. Cette initiative s'inscrit dans la tradition annuelle de l'association,
-                  créée par les premiers émigrés de la région dans les années 1930.
-                  Elle témoigne du fort attachement des générations successives à leur territoire d'origine
+              </a>
+              <span class="position-absolute top-0 start-0 m-3 badge bg-success text-white px-3 py-2 rounded-pill shadow-sm">
+                <i class="bi bi-star-fill me-1"></i> À la Une
+              </span>
+            </div>
+            <div class="col-lg-7">
+              <div class="p-4 p-lg-5">
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                  <span class="badge rounded-pill px-3 py-2 fw-semibold" [style.background]="featuredEvent.badgeBg" [style.color]="featuredEvent.badgeColor">
+                    <i class="bi bi-calendar-check-fill me-1"></i> {{featuredEvent.badge}}
+                  </span>
+                  <span class="text-muted small fw-semibold"><i class="bi bi-clock me-1"></i> {{featuredEvent.date}}</span>
+                </div>
+
+                <h2 class="fw-bold mb-3 text-dark" style="font-size: 1.75rem; line-height: 1.3;">
+                  {{featuredEvent.title}}
+                </h2>
+                
+                <p class="text-muted mb-4" style="font-size: 1rem; line-height: 1.6;">
+                  {{featuredEvent.description}}
                 </p>
 
-                <div class="d-flex align-items-center justify-content-between mt-auto">
-                  <a routerLink="/madrassa" class="btn btn-outline-primary rounded-pill px-4">En savoir plus</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article id="5"  *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
-          <div class="row g-0">
-            <div class="col-md-5">
-              <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl4 + ') center/cover'"></div>
-            </div>
-            <div class="col-md-7">
-              <div class="p-4 p-lg-5">
-                <div class="d-flex align-items-center gap-2 mb-3">
-                  <span class="badge bg-danger-soft text-danger rounded-pill px-3 py-2"
-                        style="background: rgba(239, 68, 68, 0.1); color: #dc3545 !important;">Alerte Route</span>
-                  <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i> 11 Juin 2026</span>
-                </div>
-                <h3 class="fw-bold mb-3" style="font-size: 1.35rem; line-height: 1.4;">Centre de la commune d’Arbaa Rasmouka : dégradation de l’infrastructure routière sur la route régionale 115</h3>
-                <p class="text-muted mb-4" style="font-size: 0.95rem;">
-                  Sous le regard des autorités locales et de la protection civile, l’effondrement des protections de la route régionale 115 reliant Ait Baha à Tiznit continue de progresser, transformant l’axe routier en une route très dangereuse pour les usagers.
-                </p>
-                <div class="d-flex align-items-center justify-content-between mt-auto">
-                  <a routerLink="/degradation-route" class="btn btn-outline-primary rounded-pill px-4">En savoir plus</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article id="1" *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
-          <div class="row g-0">
-            <div class="col-md-5">
-              <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl0 + ') center/cover'"></div>
-            </div>
-            <div class="col-md-7">
-              <div class="p-4 p-lg-5">
-                <div class="d-flex align-items-center gap-2 mb-3">
-                  <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-2"
-                        style="background: rgba(34, 197, 94, 0.1);">Election Legislative </span>
-                  <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i> 23 Septembre 2026</span>
-                </div>
-                <h3 class="fw-bold mb-3">Election 2026 au Maroc : S'informer, participer, décider de l'avenir</h3>
-                <p class="text-muted mb-4">Les prochaines échéances électorales du 23 septembre 2026 approchent à grands pas.
-                  C’est un moment charnière pour l’avenir du Royaume, et chaque voix, qu’elle vienne du Maroc ou de l'étranger (MRE),
-                  est déterminante mobilisons-nous.</p>
-
-                <div class="d-flex align-items-center justify-content-between mt-auto">
-                  <a routerLink="/actualite" class="btn btn-outline-primary rounded-pill px-4">En savoir plus</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article id="2" *ngIf="currentPage === 1" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
-          <div class="row g-0">
-            <div class="col-md-5">
-              <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl1 + ') center/cover'"></div>
-            </div>
-            <div class="col-md-7">
-              <div class="p-4 p-lg-5">
-                <div class="d-flex align-items-center gap-2 mb-3">
-                  <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-2"
-                    style="background: rgba(34, 197, 94, 0.1);">Événement Annuel</span>
-                  <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i> {{getDataWada()}}</span>
-                </div>
-                <h3 class="fw-bold mb-3">Merci de votre présence et votre participation de Waada du premier Mai {{getDataWada()-1}}</h3>
-                <p class="text-muted mb-4">Cette réunion annuelle est l'occasion de se réunir pour faire un état des
-                  lieux des projets durant l'année précédente et de discuter des projets à venir.</p>
-                <p> Nous vous donnant rendez-vous l'année prochaine le premier Mai  {{getDataWada()}} </p>
-                <p><a href="/WadaTelba" class="text-dark text-decoration-none hover-primary"> communiqué officiel de cette edition {{getDataWada()-1}} </a> </p>
-                <div class="d-flex align-items-center justify-content-between mt-auto">
-                  <app-count-down></app-count-down>
-                  <a routerLink="/EventReadMore" class="btn btn-outline-primary rounded-pill px-4">En savoir plus</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article id="3" *ngIf="currentPage === 2" class="card-premium border-0 mb-5 p-0 overflow-hidden" >
-          <div class="row g-0">
-            <div class="col-md-5">
-              <div class="h-100 min-vh-25" [style.background]="'url(' + imageUrl2 + ') center/cover'"></div>
-            </div>
-            <div class="col-md-7">
-              <div class="p-4 p-lg-5">
-                <div class="badge bg-secondary-soft text-secondary rounded-pill px-3 py-2 mb-3"
-                  style="background: rgba(251, 191, 36, 0.1);">Soirée Culturelle</div>
-                <h3 class="fw-bold mb-3">La soirée Annuelle d'irsmouken</h3>
-
-                @if (authService.userData; as user) {
-                <div class="alert alert-success border-0 rounded-4 mb-4 py-3">
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="bg-white rounded-circle p-2 shadow-sm"><i
-                        class="bi bi-person-check-fill text-success fs-4"></i></div>
-                    <div>
-                      <div class="small opacity-75">Bienvenue</div>
-                      <div class="fw-bold">{{user.lastName || 'Membre'}}</div>
-                    </div>
+                <div class="p-3 bg-white rounded-3 mb-4 border shadow-sm">
+                  <div class="row g-3 text-dark small">
+                    <div class="col-sm-6"><i class="bi bi-geo-alt-fill text-success me-2 fs-6"></i> <strong>Lieu :</strong> {{featuredEvent.location}}</div>
+                    <div class="col-sm-6"><i class="bi bi-alarm-fill text-success me-2 fs-6"></i> <strong>Heure :</strong> {{featuredEvent.time}}</div>
                   </div>
                 </div>
-                }
 
-                <p class="text-muted mb-4">Nous vous invitons à être nombreux pour cet événement annuel d'irsmouken. Une
-                  soirée riche en partage et en culture.</p>
-                <a routerLink="/Soiree" class="btn btn-primary rounded-pill px-4 py-2">Plus d'information</a>
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                  <button type="button" class="btn btn-success rounded-pill px-4 py-2 shadow-sm" data-bs-toggle="modal" [attr.data-bs-target]="featuredEvent.modalTarget">
+                    <i class="bi bi-image me-2"></i> Voir l'invitation officielle
+                  </button>
+                  <a routerLink="/madrassa" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                    Projet Madrassa <i class="bi bi-arrow-right ms-1"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </article>
-        <article id="4"  *ngIf="currentPage === 2"class="card-premium border-0 mb-5 p-4 p-lg-5" >
-          <div class="badge bg-info-soft text-info rounded-pill px-3 py-2 mb-3"
-            style="background: rgba(14, 165, 233, 0.1);">MRE & Développement</div>
-          <h3 class="fw-bold mb-4">Journée nationale des MRE Irsmouken (édition 2024)</h3>
-          <div class="row align-items-center g-4 mb-4">
-            <div class="col-md-4">
-              <img [src]="imageUrl3" alt="MRE event" class="img-fluid rounded-4 shadow-sm">
+        </div>
+      </div>
+    </div>
+
+    <!-- Barre de Filtres par Catégorie -->
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <div class="d-inline-flex flex-wrap justify-content-center gap-2 p-2 bg-white rounded-pill shadow-sm border">
+          <button *ngFor="let cat of categories"
+                  (click)="filterCategory(cat.id)"
+                  class="btn rounded-pill px-4 py-2 fw-medium transition-all"
+                  [class.btn-primary]="selectedCategory === cat.id"
+                  [class.btn-light]="selectedCategory !== cat.id"
+                  [class.text-dark]="selectedCategory !== cat.id"
+                  style="font-size: 0.95rem;">
+            {{cat.label}}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Showcase d'Avancement du Projet Madrassa (Visible quand l'onglet Madrassa & Éducation est sélectionné) -->
+    <div class="row mb-5" *ngIf="selectedCategory === 'madrassa'">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white border-start border-4 border-success">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <div>
+              <span class="badge rounded-pill px-3 py-2 mb-2" style="background: rgba(34, 197, 94, 0.1); color: #15803d;">
+                <i class="bi bi-bar-chart-steps me-1"></i> Suivi de Chantier
+              </span>
+              <h3 class="fw-bold text-dark mb-1">Avancement des Travaux - Complexe Madrassa Atika</h3>
+              <p class="text-muted small mb-0">Découvrez l'évolution des infrastructures à travers les 5 phases clés de réalisation.</p>
             </div>
-            <div class="col-md-8">
-              <h5 class="fw-bold">Célébrer le rôle vital des migrants dans le développement</h5>
-              <p class="text-muted small">La journée des MRE du 10 août 2024 a été l'occasion de démontrer la place
-                particulière d'Irsmouken dans la province de Tiznit.</p>
+            <button type="button" class="btn btn-success rounded-pill px-4 py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#progressGalleryModal">
+              <i class="bi bi-arrows-fullscreen me-2"></i> Galerie Interactive (5 Clichés)
+            </button>
+          </div>
+
+          <!-- Grille des 5 étapes d'avancement -->
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-2" *ngFor="let photo of progressGallery; let i = index" style="flex: 0 0 20%; max-width: 20%;">
+              <div class="gallery-step-card position-relative rounded-4 overflow-hidden shadow-sm bg-dark cursor-pointer text-white h-100"
+                   data-bs-toggle="modal" 
+                   data-bs-target="#progressGalleryModal"
+                   (click)="selectProgressPhoto(i)"
+                   style="height: 170px;">
+                <img [src]="photo.image" [alt]="photo.title" class="w-100 h-100 opacity-85 transition-transform" style="object-fit: cover;">
+                <div class="position-absolute top-0 start-0 w-100 h-100 p-3 d-flex flex-column justify-content-between"
+                     style="background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);">
+                  <span class="badge rounded-pill bg-success text-white align-self-start small">
+                    Étape {{i + 1}}
+                  </span>
+                  <div>
+                    <h6 class="fw-bold mb-1 text-white text-truncate" style="font-size: 0.82rem;">{{photo.phase}}</h6>
+                    <p class="small text-white-50 mb-0 text-truncate" style="font-size: 0.72rem;">{{photo.title}}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <blockquote class="border-start border-primary border-4 ps-4 py-2 mb-4 fs-5 italic text-muted"
-            style="font-style: italic;">
-            "Les acteurs administratifs et étatiques ont souligné les opportunités d'investissements et les mesures
-            incitatives spécifiques pour Irsmouken."
-          </blockquote>
-          <a href="https://agadirtoday.com/fr/la-journee-national-du-migrant-tiznit-reaffirme-les-liens-diaspora-et-developpement/"
-            class="btn btn-link text-primary p-0 fw-bold text-decoration-none">Lire le communiqué complet <i
-              class="bi bi-arrow-right ms-1"></i></a>
-        </article>
+        </div>
+      </div>
+    </div>
 
-        <!-- Pagination -->
-        <nav aria-label="Page navigation" class="mt-5">
-          <ul class="pagination pagination-lg justify-content-center border-0">
+    <!-- Grille des Actualités & Événements (3 colonnes) -->
+    <div class="row g-4">
 
-            <li class="page-item" [class.disabled]="currentPage === 1">
-              <button class="page-link rounded-circle mx-1 border-0" (click)="previousPage()">
-                Précedant
-              </button>
-            </li>
+      <!-- Colonne Principale des Cartes (Col-lg-8 ou Col-lg-12 selon mise en page) -->
+      <div class="col-lg-8">
+        <div class="row g-4">
+          <div class="col-md-6" *ngFor="let item of filteredEvents">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden transition-hover bg-white" style="transition: transform 0.2s ease, box-shadow 0.2s ease;">
+              
+              <!-- Image de la carte -->
+              <div class="position-relative overflow-hidden" style="height: 210px;">
+                <img [src]="item.image" [alt]="item.title" class="w-100 h-100" style="object-fit: cover;">
+                <span class="position-absolute top-0 start-0 m-3 badge rounded-pill px-3 py-2 shadow-sm"
+                      [style.background]="item.badgeBg" [style.color]="item.badgeColor">
+                  {{item.badge}}
+                </span>
+              </div>
 
-            <li class="page-item active" aria-current="page" [class.disabled]="currentPage === 1">
-              <button class="page-link rounded-circle mx-1 border-0" (click)="goToPage(1)">
-                1
-              </button>
-            </li>
+              <!-- Contenu de la carte -->
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                  <i class="bi bi-calendar3"></i> {{item.date}}
+                </div>
 
-            <li class="page-item" [class.disabled]="currentPage === 2">
-              <button class="page-link rounded-circle mx-1 border-0" (click)="goToPage(2)">
-                2
-              </button>
-            </li>
+                <h4 class="card-title fw-bold mb-3" style="font-size: 1.15rem; line-height: 1.4; color: #0f172a;">
+                  {{item.title}}
+                </h4>
 
-            <li class="page-item" [class.disabled]="currentPage === 2">
-              <button class="page-link rounded-circle mx-1 border-0" (click)="goToPage(3)">
-                3
-              </button>
-            </li>
+                <p class="card-text text-muted small mb-4 flex-grow-1" style="line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                  {{item.description}}
+                </p>
 
-            <li class="page-item" [class.disabled]="currentPage === 2">
-              <button class="page-link rounded-circle mx-1 border-0" (click)="nextPage()">
-                Prochaine
-              </button>
-            </li>
+                <!-- Compte à rebours si applicable -->
+                <div *ngIf="item.hasCountdown" class="mb-3">
+                  <app-count-down></app-count-down>
+                </div>
 
-          </ul>
-        </nav>
+                <!-- Bouton d'action -->
+                <div class="pt-2 border-top mt-auto d-flex align-items-center justify-content-between">
+                  <a *ngIf="item.link" [routerLink]="item.link" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                    En savoir plus <i class="bi bi-arrow-right me-1"></i>
+                  </a>
+                  <a *ngIf="item.externalLink" [href]="item.externalLink" target="_blank" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                    Lire le communiqué <i class="bi bi-box-arrow-up-right me-1"></i>
+                  </a>
+                  <button *ngIf="item.hasModal" type="button" class="btn btn-outline-success btn-sm rounded-pill px-3" data-bs-toggle="modal" [attr.data-bs-target]="item.modalTarget">
+                    <i class="bi bi-image me-1"></i> Afficher
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Sidebar -->
+      <!-- Barre Latérale (Sidebar) -->
       <div class="col-lg-4">
-        <aside class="sidebar p-4 p-xl-5 bg-white rounded-5 shadow-sm sticky-top" style="top: 120px;">
-          <h4 class="fw-bold mb-4 position-relative pb-2">
+        <aside class="sidebar p-4 bg-white rounded-4 shadow-sm sticky-top" style="top: 120px; border: 1px solid rgba(0,0,0,0.05);">
+          <h4 class="fw-bold mb-4 position-relative pb-2" style="font-size: 1.25rem;">
             Postes récents
             <span class="position-absolute bottom-0 start-0 bg-primary" style="height: 3px; width: 40px;"></span>
           </h4>
+
           <div class="recent-posts">
-            <div class="post-item d-flex gap-3 mb-4">
-              <img src="assets/img/voitureCase.jpeg" alt="" class="rounded-3 shadow-sm"
-                style="width: 80px; height: 80px; object-fit: cover;">
+            <!-- Item 1 Sidebar -->
+            <div class="post-item d-flex gap-3 mb-4 align-items-center cursor-pointer" data-bs-toggle="modal" data-bs-target="#invitationModal">
+              <img [src]="imageUrl6" alt="Madrassa Atika" class="rounded-3 shadow-sm" style="width: 75px; height: 75px; object-fit: cover;">
               <div>
-                <h6 class="fw-bold mb-1"><a routerLink="/degradation-route" class="text-dark text-decoration-none hover-primary">Alerte : Route Régionale 115</a></h6>
-                <time class="small text-muted"><i class="bi bi-clock me-1"></i> 11 Juin, 2026</time>
-              </div>
-            </div>
-            <div class="post-item d-flex gap-3">
-              <img src="assets/img/blog/blog-recent-3.jpg" alt="" class="rounded-3 shadow-sm"
-                   style="width: 80px; height: 80px; object-fit: cover;">
-              <div>
-                <h6 class="fw-bold mb-1"><a href="/WadaTelba" class="text-dark text-decoration-none hover-primary">Wadaa N'telba 2026</a></h6>
-                <time class="small text-muted"><i class="bi bi-clock me-1"></i> 01 Mai, 2026</time>
+                <span class="badge bg-success-soft text-success small mb-1" style="background: rgba(34,197,94,0.1);">09 Août 2026</span>
+                <h6 class="fw-bold mb-0" style="font-size: 0.95rem;">
+                  <a data-bs-toggle="modal" data-bs-target="#invitationModal" class="text-dark text-decoration-none hover-primary">Rencontre Madrassa Atika</a>
+                </h6>
               </div>
             </div>
 
-            <div class="post-item d-flex gap-3 mb-4">
-              <img src="assets/img/blog/blog-recent-1.jpg" alt="" class="rounded-3 shadow-sm"
-                style="width: 80px; height: 80px; object-fit: cover;">
+            <!-- Item 2 Sidebar -->
+            <div class="post-item d-flex gap-3 mb-4 align-items-center">
+              <img src="assets/img/voitureCase.jpeg" alt="Alerte Route 115" class="rounded-3 shadow-sm" style="width: 75px; height: 75px; object-fit: cover;">
               <div>
-                <h6 class="fw-bold mb-1"><a routerLink="/Ifqirn" class="text-dark text-decoration-none hover-primary">Ifqirn – Les anciens</a></h6>
-                <time class="small text-muted"><i class="bi bi-clock me-1"></i> 25 Mars, 2026</time>
+                <span class="badge bg-danger-soft text-danger small mb-1" style="background: rgba(239,68,68,0.1);">11 Juin 2026</span>
+                <h6 class="fw-bold mb-0" style="font-size: 0.95rem;">
+                  <a routerLink="/degradation-route" class="text-dark text-decoration-none hover-primary">Alerte : Route Régionale 115</a>
+                </h6>
               </div>
             </div>
 
-
-            <div class="post-item d-flex gap-3 mb-4">
-              <img src="assets/img/blog/blog-recent-2.jpg" alt="" class="rounded-3 shadow-sm"
-                   style="width: 80px; height: 80px; object-fit: cover;">
+            <!-- Item 3 Sidebar -->
+            <div class="post-item d-flex gap-3 mb-4 align-items-center">
+              <img src="assets/img/blog/blog-recent-3.jpg" alt="Waada N'telba" class="rounded-3 shadow-sm" style="width: 75px; height: 75px; object-fit: cover;">
               <div>
-                <h6 class="fw-bold mb-1"><a href="#" class="text-dark text-decoration-none hover-primary">Aide aux
-                  familles rurales</a></h6>
-                <time class="small text-muted"><i class="bi bi-clock me-1"></i> 05 Fév, 2024</time>
+                <span class="badge bg-warning-soft text-warning small mb-1" style="background: rgba(245,158,11,0.1);">01 Mai 2026</span>
+                <h6 class="fw-bold mb-0" style="font-size: 0.95rem;">
+                  <a href="/WadaTelba" class="text-dark text-decoration-none hover-primary">Waada N'telba 2026</a>
+                </h6>
+              </div>
+            </div>
+
+            <!-- Item 4 Sidebar -->
+            <div class="post-item d-flex gap-3 mb-4 align-items-center">
+              <img src="assets/img/blog/blog-recent-1.jpg" alt="Ifqirn" class="rounded-3 shadow-sm" style="width: 75px; height: 75px; object-fit: cover;">
+              <div>
+                <span class="badge bg-info-soft text-info small mb-1" style="background: rgba(14,165,233,0.1);">25 Mars 2026</span>
+                <h6 class="fw-bold mb-0" style="font-size: 0.95rem;">
+                  <a routerLink="/Ifqirn" class="text-dark text-decoration-none hover-primary">Ifqirn – Les anciens</a>
+                </h6>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 p-4 bg-primary-soft rounded-4" style="background: rgba(34, 197, 94, 0.05);">
-            <h5 class="fw-bold mb-3">Newsletter</h5>
-            <p class="small text-muted mb-3">Inscrivez-vous pour ne rien rater des actualités d'Espoir du Sud.</p>
+          <!-- Newsletter Widget -->
+          <div class="mt-4 p-4 rounded-4" style="background: rgba(34, 197, 94, 0.05); border: 1px dashed rgba(34, 197, 94, 0.3);">
+            <h5 class="fw-bold mb-2" style="font-size: 1.1rem;">Newsletter</h5>
+            <p class="small text-muted mb-3">Inscrivez-vous pour recevoir les invitations et actualités d'Espoir du Sud.</p>
             <div class="input-group">
-              <input type="email" class="form-control border-0 shadow-none" placeholder="Votre email"
-                style="font-size: 0.9rem;">
-              <button class="btn btn-primary btn-sm px-3" type="button"><i class="bi bi-send"></i></button>
+              <input type="email" class="form-control border-0 shadow-none" placeholder="Votre email" style="font-size: 0.9rem;">
+              <button class="btn btn-success btn-sm px-3" type="button"><i class="bi bi-send-fill"></i></button>
             </div>
           </div>
         </aside>
       </div>
+
     </div>
   </div>
 </section>
+
+<!-- Modale d'affichage de l'affiche d'invitation -->
+<div class="modal fade" id="invitationModal" tabindex="-1" aria-labelledby="invitationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+      <div class="modal-header border-0 bg-dark text-white p-3">
+        <h5 class="modal-title fw-bold" id="invitationModalLabel" style="font-size: 1.1rem;">
+          <i class="bi bi-envelope-paper-fill me-2 text-success"></i> Invitation - Rencontre Annuelle Madrassa Atika (09 Août 2026)
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body p-0 text-center bg-black">
+        <img [src]="imageUrl6" alt="Invitation Madrassa Atika 09 Août 2026" class="img-fluid w-100" style="max-height: 80vh; object-fit: contain;">
+      </div>
+      <div class="modal-footer bg-light border-0 p-3 d-flex justify-content-between align-items-center">
+        <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Jamä Arbaa Rasmouka - Dimanche 09 Août 2026 à 09h00</span>
+        <a [href]="imageUrl6" download="Invitation_Madrassa_Atika_09_Aout_2026.jpg" class="btn btn-sm btn-success rounded-pill px-4">
+          <i class="bi bi-download me-1"></i> Télécharger l'affiche
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale pour l'article Concrétisation Route 115 -->
+<div class="modal fade" id="articleRoute115Modal" tabindex="-1" aria-labelledby="articleRoute115ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+      <div class="modal-header border-0 bg-dark text-white p-4">
+        <div>
+          <span class="badge bg-success rounded-pill px-3 py-2 mb-2">Infrastructures & Route</span>
+          <h5 class="modal-title fw-bold text-white mb-0" id="articleRoute115ModalLabel" style="font-size: 1.25rem;">
+            Infrastructure à Irsmouken : La concrétisation tant attendue du projet de la Route Régionale 115 (ex-RP 1007)
+          </h5>
+        </div>
+        <button type="button" class="btn-close btn-close-white align-self-start" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body p-4 p-lg-5" style="font-size: 1.05rem; line-height: 1.8; color: #334155;">
+        <img src="assets/img/voitureCase2.jpeg" alt="Route Régionale 115" class="img-fluid rounded-4 mb-4 w-100 shadow-sm" style="max-height: 320px; object-fit: cover;">
+        
+        <p class="lead fw-semibold text-dark mb-4">
+          C'est une grande victoire collective pour notre commune et une excellente nouvelle pour l'ensemble des habitants et usagers de la province de Tiznit. L'avis d'appel d'offres international pour les travaux de réhabilitation de la Route Régionale N° 115 (anciennement Route Provinciale N° 1007) a été officiellement lancé.
+        </p>
+        
+        <p class="mb-4">
+          Ce projet très attendu concerne des travaux majeurs d'élargissement, de renforcement et d'amélioration du niveau de service sur un tronçon stratégique de <strong>26,97 kilomètres</strong> (de El Maader au barrage).
+        </p>
+
+        <div class="p-4 bg-light rounded-4 border-start border-primary border-4 mb-4">
+          <h5 class="fw-bold text-primary mb-2"><i class="bi bi-people-fill me-2"></i>La mobilisation de notre association MRE porte ses fruits</h5>
+          <p class="mb-2">
+            Depuis plusieurs années, notre association <strong>Espoir du Sud Imazalen Irsmouken</strong> s'est pleinement mobilisée aux côtés des acteurs locaux, des citoyens et des autorités pour porter la voix de notre communauté et plaider en faveur de la modernisation de cet axe routier névralgique.
+          </p>
+          <p class="mb-0 text-muted small">
+            Pour les Marocains du Monde originaires d'Irsmouken, qui empruntent régulièrement cette voie lors de leurs retours au pays, comme pour les usagers au quotidien, la dégradation de cette route représentait une préoccupation majeure en matière de sécurité et de désenclavement.
+          </p>
+        </div>
+
+        <h5 class="fw-bold text-dark mb-3"><i class="bi bi-graph-up-arrow text-success me-2"></i>Un impact fort pour le développement local</h5>
+        <ul class="mb-4 ps-3">
+          <li class="mb-2"><strong>Sécurité routière :</strong> Amélioration significative grâce à une chaussée élargie et renforcée.</li>
+          <li class="mb-2"><strong>Fluidité des transports :</strong> Facilitation des déplacements et du transport des personnes et des marchandises.</li>
+          <li class="mb-2"><strong>Dynamisme économique :</strong> Une nouvelle dynamique économique et touristique injectée dans les 2 communes desservies.</li>
+        </ul>
+
+        <div class="p-3 bg-success bg-opacity-10 border border-success border-opacity-25 rounded-3 mb-4">
+          <p class="mb-0 text-success-emphasis fw-medium">
+            <i class="bi bi-calendar-event me-2"></i><strong>Ouverture des plis (Appel d'offres N° 22/2026) :</strong> Fixée au <strong>18 août 2026 à 11h00</strong> dans les bureaux de la Direction Provinciale de l'Équipement, du Transport et de la Logistique à Tiznit.
+          </p>
+        </div>
+
+        <p class="mb-0 text-muted italic">
+          Notre association tient à remercier l'ensemble des acteurs, autorités et citoyens qui se sont investis pour faire aboutir ce dossier. Nous resterons attentifs et mobilisés pour suivre les étapes à venir jusqu'à la livraison finale des travaux.
+        </p>
+      </div>
+      <div class="modal-footer bg-light border-0 p-3">
+        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale Galerie d'Avancement du Projet Madrassa -->
+<div class="modal fade" id="progressGalleryModal" tabindex="-1" aria-labelledby="progressGalleryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+      <div class="modal-header border-0 bg-dark text-white p-3 p-md-4 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-success rounded-pill px-3 py-2">
+            <i class="bi bi-images me-1"></i> Suivi & Avancement du Projet
+          </span>
+          <h5 class="modal-title fw-bold text-white mb-0 fs-5" id="progressGalleryModalLabel">
+            Complexe Madrassa Atika « Doudrar »
+          </h5>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+
+      <div class="modal-body p-0 bg-dark text-white">
+        <div class="row g-0 align-items-stretch">
+          
+          <!-- Zone Affichage Photo Principale -->
+          <div class="col-lg-8 position-relative bg-black d-flex align-items-center justify-content-center" style="min-height: 420px; max-height: 70vh;">
+            <img [src]="progressGallery[activeProgressIndex].image" 
+                 [alt]="progressGallery[activeProgressIndex].title" 
+                 class="img-fluid w-100 h-100" 
+                 style="object-fit: contain; max-height: 70vh;">
+
+            <!-- Boutons Nav Précédent / Suivant -->
+            <button (click)="prevProgressPhoto()" type="button" class="btn btn-dark btn-sm rounded-circle position-absolute top-50 start-0 translate-middle-y ms-3 p-3 opacity-75 hover-opacity-100 shadow border-secondary">
+              <i class="bi bi-chevron-left fs-4"></i>
+            </button>
+            <button (click)="nextProgressPhoto()" type="button" class="btn btn-dark btn-sm rounded-circle position-absolute top-50 end-0 translate-middle-y me-3 p-3 opacity-75 hover-opacity-100 shadow border-secondary">
+              <i class="bi bi-chevron-right fs-4"></i>
+            </button>
+
+            <span class="position-absolute bottom-0 start-0 m-3 badge bg-black bg-opacity-75 text-white px-3 py-2 rounded-pill small border border-secondary">
+              Cliché {{activeProgressIndex + 1}} sur {{progressGallery.length}}
+            </span>
+          </div>
+
+          <!-- Zone Explications & Détails -->
+          <div class="col-lg-4 p-4 d-flex flex-column justify-content-between bg-dark border-start border-secondary border-opacity-25 text-white">
+            <div>
+              <div class="mb-3">
+                <span class="badge rounded-pill px-3 py-2 fw-bold mb-2"
+                      [style.background]="progressGallery[activeProgressIndex].badgeBg"
+                      [style.color]="progressGallery[activeProgressIndex].badgeColor">
+                  {{progressGallery[activeProgressIndex].phase}}
+                </span>
+                <h4 class="fw-bold mb-2 text-white" style="font-size: 1.25rem;">
+                  {{progressGallery[activeProgressIndex].title}}
+                </h4>
+              </div>
+
+              <p class="text-white-50 lead fs-6 mb-4" style="line-height: 1.6;">
+                {{progressGallery[activeProgressIndex].description}}
+              </p>
+            </div>
+
+            <!-- Miniatures interactives -->
+            <div class="pt-3 border-top border-secondary border-opacity-25">
+              <span class="d-block small text-white-50 mb-2 fw-semibold">Sélectionner une étape :</span>
+              <div class="d-flex gap-2 overflow-x-auto pb-2">
+                <div *ngFor="let photo of progressGallery; let idx = index"
+                     (click)="selectProgressPhoto(idx)"
+                     class="cursor-pointer rounded-3 overflow-hidden border transition-all"
+                     [class.border-success]="activeProgressIndex === idx"
+                     [class.border-light]="activeProgressIndex !== idx"
+                     style="width: 60px; height: 60px; flex-shrink: 0;">
+                  <img [src]="photo.image" [alt]="photo.title" class="w-100 h-100" style="object-fit: cover;">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer bg-dark border-top border-secondary border-opacity-25 p-3 d-flex justify-content-between align-items-center">
+        <a [href]="progressGallery[activeProgressIndex].image" download target="_blank" class="btn btn-sm btn-outline-light rounded-pill px-3">
+          <i class="bi bi-download me-1"></i> Télécharger la photo HD
+        </a>
+        <a routerLink="/madrassa" class="btn btn-sm btn-success rounded-pill px-4" data-bs-dismiss="modal">
+          <i class="bi bi-mortarboard me-1"></i> Voir le projet complet
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
